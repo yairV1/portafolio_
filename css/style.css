@@ -1,0 +1,616 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    /* Fuente general */
+}
+
+/* 🔹 Ocultar scrollbar en TODO el portafolio */
+body {
+    overflow-y: scroll;
+    /* Mantiene el scroll vertical activo */
+}
+
+html,
+body {
+    height: 100%;
+    overflow: auto;
+    /* 🔹 oculta completamente el scroll */
+}
+
+
+/* Oculta en Chrome, Safari y navegadores WebKit */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Estilos generales para el nav */
+.nav {
+    background: linear-gradient(to right, #6D67D0, #FF6B6B);
+    /* Degradado */
+    padding: 8px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Lista del menú */
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+    /* Espacio entre elementos */
+}
+
+/* Ítems del menú */
+.nav ul li {
+    display: inline-block;
+}
+
+/* Links */
+.nav a {
+    text-decoration: none;
+    color: #f5f5f5;
+    /* Blanco suave */
+    font-weight: 600;
+    /* Semi-negrita */
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover */
+.nav a:hover {
+    color: #ff6bcb;
+    /* Color rosado/fucsia al pasar */
+    text-shadow: 0 0 6px rgba(255, 107, 203, 0.7);
+}
+
+/* Si quieres marcar el link activo */
+.nav a.active {
+    border-bottom: 2px solid #ff6bcb;
+    padding-bottom: 2px;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #0ff !important;
+    /* azul cian futurista */
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+}
+
+.nav-link.active {
+    color: #ff6bcb !important;
+    border-bottom: 2px solid #ff6bcb;
+}
+
+
+/* Estilos de lo de fondo y eso */
+/* Sección hero */
+.hero {
+    min-height: calc(100vh - 100px);
+    /* 100px porque tienes padding: 50px arriba + 50px abajo */
+    padding: 58px 0;
+    background: #0d0d2b;
+    overflow: hidden;
+}
+
+
+/* Imagen con efecto glow */
+.hero-img {
+    width: 110%;
+    max-width: none;
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+}
+
+
+/* Animación hover */
+.hero-img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0px 0px 25px rgba(255, 107, 203, 0.9));
+}
+
+/* Títulos y subtítulos */
+.hero h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+}
+
+.hero h4 {
+    color: #ff6bcb;
+    /* contraste LED rosado */
+    text-shadow: 0 0 8px rgba(255, 107, 203, 0.5);
+}
+
+/* desde aca es el perfin */
+/* Sección general */
+#perfil {
+    background: #0d0d2b;
+    color: #f1f1f1;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#perfil {
+    background: #0d0d2b;
+    /* Fondo oscuro elegante */
+    color: #f1f1f1;
+    padding: 4rem 0;
+}
+
+.perfil-card {
+    background: #16163a;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+#perfil {
+    background: #0d0d2b;
+    /* Fondo elegante */
+    color: #f1f1f1;
+    padding: 4rem 0;
+}
+
+.perfil-card {
+    background: #16163a;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    /* Para que en móvil se acomode */
+}
+
+/* Imagen más grande al lado izquierdo */
+.perfil-card img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.perfil-card img:hover {
+    transform: scale(1.05);
+}
+
+/* Texto a la derecha */
+.perfil-titulo {
+    color: #9d8cff;
+    /* Morado LED */
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.perfil-card p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    text-align: justify;
+    color: #eaeaea;
+    margin: 0;
+}
+
+/* 🔹 Ajuste responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .perfil-card {
+        flex-direction: column;
+        /* Imagen arriba, texto abajo */
+        text-align: center;
+    }
+
+    .perfil-card img {
+        margin-bottom: 1.5rem;
+    }
+
+    .perfil-card p {
+        text-align: center;
+    }
+}
+
+/* desde aca las lo otro care monda */
+.habilidades {
+    background: #0d0d2b;
+    color: #f1f1f1;
+}
+
+.habilidad-box {
+    background: #16163a;
+    padding: 20px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+
+    /* 🔹 Forzar tamaño uniforme */
+    min-height: 200px;
+    /* mismo alto para todos */
+    display: flex;
+    /* usar flex para centrar */
+    flex-direction: column;
+    /* apilar img + texto */
+    align-items: center;
+    /* centrar horizontal */
+    justify-content: center;
+    /* centrar vertical */
+}
+
+
+.habilidad-box:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+.habilidad-box img {
+    max-width: 80px;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+}
+
+.habilidad-box h5 {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #9d8cff;
+    /* Morado LED */
+}
+
+
+/* carrusel */
+.portafolio {
+    background: #0d0d2b;
+    color: #fff;
+}
+
+.portafolio img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+}
+
+.portafolio img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+    /* hace que las flechas sean blancas en fondo oscuro */
+}
+
+/* acordeon */
+.estudios {
+    background: #0d0d2b;
+    color: #f1f1f1;
+}
+
+.accordion-item {
+    background: #1e1e3f;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    background: #ff6b6b;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+.accordion-button.collapsed {
+    background: #e94f4f;
+    color: #fff;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-body {
+    background: #2a2a4f;
+    color: #ddd;
+    padding: 20px;
+    font-size: 0.95rem;
+}
+
+/* aca es la experiencia */
+/* ===== SECCIÓN EXPERIENCIA ===== */
+.experiencia {
+    text-align: center;
+    padding: 80px 20px;
+    background: #1e0e1f;
+    /* mismo fondo de tus otras secciones */
+    color: #fff;
+}
+
+.experiencia h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    font-weight: bold;
+}
+
+/* Contenedor de tarjetas */
+.experiencia-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Cada tarjeta */
+.card-exp {
+    background: linear-gradient(180deg, #3a1c4f, #6a2c70, #b33c86);
+    padding: 30px 20px;
+    border-radius: 15px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover efecto */
+.card-exp:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagen (logo empresa) */
+.card-exp img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+/* Texto dentro */
+.card-exp p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #f5f5f5;
+}
+
+/* los hobbis */
+/* 🎨 Sección de hobbies */
+.hobbis {
+    text-align: center;
+    padding: 50px 20px;
+    background: #220f24;
+}
+
+.hobbis h2 {
+    font-size: 2rem;
+    color: #d98fff;
+    /* Color morado/rosado como en tu img */
+    margin-bottom: 40px;
+}
+
+/* 📌 Contenedor principal */
+.hobbies-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* 🖼️ Tarjeta de hobby */
+.hobby-card {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hobby-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* 📌 Overlay */
+.hobby-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    /* Oscurece */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.hobby-overlay h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #d98fff;
+}
+
+.hobby-overlay p {
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* 🎭 Efectos hover */
+.hobby-card:hover img {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+    /* Se aclara */
+}
+
+.hobby-card:hover .hobby-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🔹 Footer */
+footer {
+  background: linear-gradient(135deg, #1e0e1f, #0f0f1e 60%, #1a1a2e);
+  color: #fff;
+  padding: 25px 20px;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+}
+
+/* Contenedor */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Secciones */
+.footer-section {
+  flex: 1;
+  min-width: 220px;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #ff4da6;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 77, 166, 0.6);
+}
+
+.footer-section p,
+.footer-section a {
+  color: #ccc;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+  margin: 4px 0;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: #ff4da6;
+}
+
+/* 🔹 Enlaces con subrayado animado */
+.footer-section a {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.footer-section a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: #ff4da6;
+  transition: width 0.3s ease;
+}
+
+.footer-section a:hover::after {
+  width: 100%;
+}
+
+/* 🔹 Footer General */
+footer {
+  background: #1e0e1f;
+  color: #fff;
+  padding: 20px 20px; /* reducido */
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+}
+
+/* 🔹 Contenedor principal */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* centra verticalmente */
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* 🔹 Secciones */
+.footer-section h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #ff4da6;
+  font-weight: 600;
+}
+
+.footer-section p {
+  margin: 0;
+  font-size: 13px;
+  color: #ccc;
+}
+
+.footer-section.right {
+  text-align: right;
+}
+
+/* 🔹 Iconos redes sociales */
+.footer-icons {
+  margin-top: 5px;
+}
+
+.footer-icons a {
+  display: inline-block;
+  margin-right: 8px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.footer-icons img {
+  width: 22px; /* tamaño pequeño */
+  height: 22px;
+  filter: brightness(0.8);
+  transition: filter 0.3s, transform 0.3s;
+}
+
+.footer-icons a:hover img {
+  filter: brightness(1) drop-shadow(0 0 6px #ff4da6);
+  transform: scale(1.2);
+}
+
+/* 🔹 Parte inferior */
+.footer-bottom {
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 5px;
+  font-size: 12px;
+  color: #bbb;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}

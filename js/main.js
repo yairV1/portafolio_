@@ -22,6 +22,21 @@ function initSmoothScroll() {
   });
 }
 
+/* 🔹 Botón volver arriba */
+function initBackToTop() {
+  const backToTop = document.createElement("button");
+  backToTop.innerHTML = "";
+  backToTop.id = "backToTop";
+  document.body.appendChild(backToTop);
+
+  window.addEventListener("scroll", () => {
+    backToTop.style.display = window.scrollY > 400 ? "block" : "none";
+  });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
 /* 🔹 Navbar activo */
 function initNavbarHighlight() {

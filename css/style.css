@@ -28,8 +28,8 @@
 }
 
 body {
-  background: var(--fondo-oscuro);
-  color: var(--color-white);
+  background: linear-gradient(200deg, #0f0f1e 0%, #1a1a2e 60%, #FF6B6B 80%, #0f0f1e 100%);
+  color: #fff;
   padding-top: 80px;
 }
 
@@ -42,7 +42,7 @@ nav {
 }
 
 .custom-nav {
-  background: linear-gradient(180deg, #3a1c4f, #6a2c70, #b33c86);
+  background: linear-gradient(10deg, #3a1c4f, #6a2c70, #b33c86);
   backdrop-filter: blur(12px);
   border-radius: 20px;
   margin: 15px auto;
@@ -111,7 +111,6 @@ nav {
   align-items: center;
   justify-content: center;
   padding: 58px 0;
-  background: var(--fondo-oscuro);
   overflow: hidden;
 }
 
@@ -119,7 +118,7 @@ nav {
   width: 110%;
   max-width: none;
   filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
-  transition: all 0.3s ease;
+  transition: all 0.3s ease;  
 }
 
 .hero-img:hover {
@@ -140,7 +139,6 @@ nav {
 
 /* PERFIL */
 #perfil {
-  background: var(--fondo-oscuro);
   color: #f1f1f1;
   padding: 4rem 0;
   display: flex;
@@ -148,10 +146,7 @@ nav {
 }
 
 .perfil-card {
-  background: #16163a;
-  border-radius: 20px;
   padding: 3rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -203,7 +198,6 @@ nav {
 
 /* HABILIDADES */
 .habilidades {
-  background: var(--fondo-oscuro);
   color: #f1f1f1;
 }
 #habilidades h2 {
@@ -300,7 +294,6 @@ nav {
 }
 /* PORTAFOLIO */
 .portafolio {
-  background: var(--fondo-oscuro);
   color: #fff;
 }
 
@@ -321,7 +314,6 @@ nav {
 
 /* ESTUDIOS */
 .estudios {
-  background: var(--fondo-oscuro);
   color: #f1f1f1;
 }
 
@@ -359,7 +351,6 @@ nav {
 .experiencia {
   text-align: center;
   padding: 80px 20px;
-  background: #1e0e1f;
   color: #fff;
 }
 
@@ -408,7 +399,6 @@ nav {
 .hobbis {
   text-align: center;
   padding: 50px 20px;
-  background: #220f24;
 }
 
 .hobbis h2 {
@@ -485,7 +475,6 @@ nav {
 
 /* FOOTER */
 footer {
-  background: linear-gradient(180deg, #3a1c4f);
   color: #fff;
   padding: 40px 20px 20px;
   border-top: 2px solid var(--cian);
@@ -503,7 +492,7 @@ footer {
 .footer-section h3 {
   font-size: 1.3rem;
   color: var(--cian);
-  margin-bottom: 10px;
+  margin-bottom: 10px;  
 }
 
 .footer-section p {
@@ -570,36 +559,4 @@ footer {
   display: flex;
   justify-content: center;
   gap: 8px;
-}
-
-/* Botón flotante de WhatsApp */
-.whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  /* Verde WhatsApp */
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  z-index: 999;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  background-color: #20ba5a;
-  /* Verde más oscuro */
-  transform: scale(1.1);
-  color: #fff;
-}
-
-.whatsapp-float i {
-  line-height: 1;
 }

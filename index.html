@@ -29,7 +29,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#perfil">Perfil Profesional</a></li>
                         <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#portafolio">Portafolio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#proyectos">Portafolio</a></li>
                         <li class="nav-item"><a class="nav-link" href="#estudios">Estudios</a></li>
                         <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
                         <li class="nav-item"><a class="nav-link" href="#hobbis">Hobbis</a></li>
@@ -38,17 +38,20 @@
             </div>
         </nav>
 
-
-
         <hero class="hero d-flex align-items-center">
             <div class="container">
                 <div class="row align-items-center">
 
                     <!-- Texto a la izquierda -->
                     <div class="col-md-5 text-white">
+                        <canvas id="stars"></canvas>
                         <h1 class="fw-bold">Yair Andrey</h1>
                         <h4 class="fw-normal text-light">Vergara Avila</h4>
-
+                        <p class="lead sub mb-4">Desarrollador con enfoque en soluciones digitales innovadoras. Combino diseño, código y buenas prácticas para entregar proyectos funcionales, escalables y de alto impacto.</p>
+                        <div class="botones">
+                            <button class="btnGit"><i class="bi bi-github"></i></button>
+                            <button class="btnWasa"><i class="bi bi-whatsapp"></i></button>
+                        </div>
                     </div>
 
                     <!-- Imagen a la derecha -->
@@ -248,50 +251,95 @@
             </div>
         </section>
 
-        <section id="portafolio" class="portafolio py-5 text-center">
-            <div class="container">
-                <h2 class="fw-bold mb-3">Portafolio</h2>
-                <p class="text-light mb-5">
-                    Las imágenes que ves muestran algunos de mis trabajos. Haz clic en ellas para verlos con más detalle
-                    en su página correspondiente.
-                </p>
+        <section id="proyectos">
+            <div class="container container-narrow">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h2 class="section-title mb-0">Proyectos destacados</h2>
+                    <div class="input-group" style="max-width: 280px;">
+                        <span class="input-group-text glass border-0"><i class="bi bi-search"></i></span>
+                        <input id="search" class="form-control glass border-0" placeholder="Buscar proyectos..." />
+                    </div>
+                </div>
+                <div class="row g-4" id="projectsGrid">
+                    <!-- Proyecto 1 -->
+                    <div class="col-md-6 col-lg-4 project" data-title="Landing Animada" data-tags="marketing,animation">
+                        <div class="project-card h-100 p-3 reveal">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="tag">Animación</span>
+                                <span class="tag">Bootstrap</span>
+                            </div>
+                            <h5 class="fw-bold mb-2">Gym</h5>
+                            <p>
+                                Landing page moderna para un gimnasio, con secciones de servicios, planes y contacto.
+                                Diseño responsivo, animaciones ligeras y enfoque en la conversión de clientes.
+                            </p>
 
-                <!-- Carrusel -->
-                <div id="carouselPortafolio" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-
-                        <!-- Proyecto 1 -->
-                        <div class="carousel-item active">
-                            <a href="https://yairv1.github.io/algoritmos-n/" target="_blank">
-                                <img src="img/3.png" class="d-block w-20 mx-auto rounded shadow" alt="Proyecto 1">
-                            </a>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="btn btn-sm btn-outline-light demo-btn" data-bs-toggle="offcanvas"
+                                    data-bs-target="#demoPreview" data-demo="https://yairv1.github.io/mi-gym/">
+                                    Ver
+                                </a>
+                                <a href="https://github.com/yairV1/mi-gym" class="btn btn-sm btn-primary">Código</a>
+                            </div>
                         </div>
-
-                        <!-- Proyecto 2 -->
-                        <div class="carousel-item">
-                            <a href="https://yairv1.github.io/mi-gym/" target="_blank">
-                                <img src="img/1.png" class="d-block w-20 mx-auto rounded shadow" alt="Proyecto 2">
-                            </a>
-                        </div>
-
-                        <!-- Proyecto 3 -->
-                        <div class="carousel-item">
-                            <a href="https://yairv1.github.io/sena/" target="_blank">
-                                <img src="img/2.png" class="d-block w-20 mx-auto rounded shadow" alt="Proyecto 3">
-                            </a>
-                        </div>
-
                     </div>
 
-                    <!-- Botones -->
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPortafolio"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselPortafolio"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
+                    <!-- Proyecto 2 -->
+                    <div class="col-md-6 col-lg-4 project" data-title="Landing Animada" data-tags="marketing,animation">
+                        <div class="project-card h-100 p-3 reveal">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="tag">Animación</span>
+                                <span class="tag">Performance</span>
+                            </div>
+                            <h5 class="fw-bold mb-2">Landing Animada</h5>
+                            <p>Página optimizada con animaciones y diseño responsivo enfocado en marketing.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="btn btn-sm btn-outline-light demo-btn" data-bs-toggle="offcanvas"
+                                    data-bs-target="#demoPreview" data-demo="https://yairv1.github.io/mi-gym/">
+                                    Demo
+                                </a>
+                                <a href="https://github.com/yairV1/mi-gym" class="btn btn-sm btn-primary">Código</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 3 -->
+                    <div class="col-md-6 col-lg-4 project" data-title="Landing Animada" data-tags="marketing,animation">
+                        <div class="project-card h-100 p-3 reveal">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="tag">Animación</span>
+                                <span class="tag">Performance</span>
+                            </div>
+                            <h5 class="fw-bold mb-2">Landing Animada</h5>
+                            <p>Página optimizada con animaciones y diseño responsivo enfocado en marketing.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="btn btn-sm btn-outline-light demo-btn" data-bs-toggle="offcanvas"
+                                    data-bs-target="#demoPreview" data-demo="https://yairv1.github.io/mi-gym/">
+                                    Demo
+                                </a>
+                                <a href="https://github.com/yairV1/mi-gym" class="btn btn-sm btn-primary">Código</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 4 -->
+                    <div class="col-md-6 col-lg-4 project" data-title="Landing Animada" data-tags="marketing,animation">
+                        <div class="project-card h-100 p-3 reveal">
+                            <div class="d-flex align-items-center justify-content-between mb-2">
+                                <span class="tag">Animación</span>
+                                <span class="tag">Performance</span>
+                            </div>
+                            <h5 class="fw-bold mb-2">Landing Animada</h5>
+                            <p>Página optimizada con animaciones y diseño responsivo enfocado en marketing.</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <a href="#" class="btn btn-sm btn-outline-light demo-btn" data-bs-toggle="offcanvas"
+                                    data-bs-target="#demoPreview" data-demo="https://yairv1.github.io/mi-gym/">
+                                    Demo
+                                </a>
+                                <a href="https://github.com/yairV1/mi-gym" class="btn btn-sm btn-primary">Código</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -497,5 +545,18 @@
         crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
 </body>
+<!-- Offcanvas lateral -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="demoPreview" aria-labelledby="demoPreviewLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="demoPreviewLabel">Vista previa</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+        <!-- Contenedor tipo “celular” -->
+        <div class="phone-frame mx-auto my-3">
+            <iframe id="demoFrame" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
 
 </html>

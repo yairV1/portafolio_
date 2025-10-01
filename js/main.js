@@ -142,3 +142,11 @@ function initFormValidation() {
     }
   });
 }
+document.querySelectorAll(".demo-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const url = btn.getAttribute("data-demo");
+    document.getElementById("demoFrame").src = url;
+    document.getElementById("demoPreviewLabel");
+  });
+});
+

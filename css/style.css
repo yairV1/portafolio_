@@ -164,61 +164,39 @@ canvas {
 }
 
 /* para los botones del header */
-.lead.sub {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #ddd;
-  max-width: 700px;
-  margin: 0 auto 1.5rem auto;
-  text-align: auto;
-  font-weight: 300;
-}
-
 .botones {
   display: flex;
-  justify-content: auto;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 10px;
 }
 
-.botones button {
-  width: 55px;
-  height: 55px;
-  border-radius: 12px;
-  /* cuadrado con bordes suavizados */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 1.4rem;
-  cursor: pointer;
-  display: flex;
+.btnGit, .btnWasa {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  color: white;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  gap: 5px;
+  padding: 8px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
-/* GitHub */
 .btnGit {
-  background: #24292e;
+  background: #333;
 }
 
 .btnGit:hover {
-  background: #333;
-  box-shadow: 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan);
-  transform: translateY(-4px) scale(1.1);
-  /* efecto "flotante" */
+  background: #000;
+  transform: scale(1.05);
 }
 
-/* WhatsApp */
 .btnWasa {
-  background: #25d366;
+  background: #25D366;
 }
 
 .btnWasa:hover {
-  background: #1ebe57;
-  box-shadow: 0 0 10px #1ebe57, 0 0 20px #0f0;
-  transform: translateY(-4px) scale(1.1);
+  background: #128C7E;
+  transform: scale(1.05);
 }
 
 /* PERFIL */
@@ -383,6 +361,22 @@ canvas {
   background: var(--panel);
   color: #fff;
   padding: 10px;
+}
+.project-card p {
+  max-height: 4.5rem; /* Limita aprox. a 2 líneas */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Muestra solo 2 líneas */
+  -webkit-box-orient: vertical;
+  transition: all 4s ease;
+}
+
+/* Al pasar el mouse, el texto se expande */
+.project-card:hover p {
+  max-height: 200px; /* Se expande */
+  -webkit-line-clamp: unset;
 }
 
 .p-0 {

@@ -1,14 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
-  initSmoothScroll();
-  initBackToTop();
-  initNavbarHighlight();
-  initDarkMode();
-  initWhatsAppPulse();
-  initTypingEffect();
-  initCounters();
-  initFormValidation();
-  AOS.init({ duration: 1000, once: true });
-});
 
 /* 🔹 Scroll suave */
 function initSmoothScroll() {
@@ -19,22 +8,6 @@ function initSmoothScroll() {
         document.querySelector(link.hash).scrollIntoView({ behavior: 'smooth' });
       }
     });
-  });
-}
-
-/* 🔹 Botón volver arriba */
-function initBackToTop() {
-  const backToTop = document.createElement("button");
-  backToTop.innerHTML = "";
-  backToTop.id = "backToTop";
-  document.body.appendChild(backToTop);
-
-  window.addEventListener("scroll", () => {
-    backToTop.style.display = window.scrollY > 400 ? "block" : "none";
-  });
-
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
 
@@ -57,72 +30,6 @@ function initNavbarHighlight() {
         link.classList.add("active");
       }
     });
-  });
-}
-
-/* 🔹 Modo Oscuro */
-function initDarkMode() {
-  const toggleBtn = document.querySelector("#darkModeToggle");
-  const body = document.body;
-
-  // Guardar preferencia en localStorage
-  if (localStorage.getItem("darkMode") === "true") {
-    body.classList.add("dark-mode");
-  }
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-      localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
-    });
-  }
-}
-
-/* 🔹 WhatsApp pulso */
-function initWhatsAppPulse() {
-  const whatsBtn = document.querySelector(".whatsapp-float");
-  if (whatsBtn) {
-    setInterval(() => whatsBtn.classList.toggle("pulse"), 1500);
-  }
-}
-
-/* 🔹 Efecto escritura */
-function initTypingEffect() {
-  const textElement = document.querySelector(".typing-text");
-  if (!textElement) return;
-
-  const text = textElement.dataset.text || "Desarrollador Web Junior";
-  let i = 0;
-
-  function type() {
-    if (i < text.length) {
-      textElement.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(type, 100);
-    }
-  }
-  type();
-}
-
-/* 🔹 Contadores */
-function initCounters() {
-  const counters = document.querySelectorAll(".counter");
-  const speed = 200;
-
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute("data-target");
-      const count = +counter.innerText;
-      const inc = target / speed;
-
-      if (count < target) {
-        counter.innerText = Math.ceil(count + inc);
-        setTimeout(updateCount, 20);
-      } else {
-        counter.innerText = target;
-      }
-    };
-    updateCount();
   });
 }
 
@@ -150,3 +57,20 @@ document.querySelectorAll(".demo-btn").forEach(btn => {
   });
 });
 
+
+
+const busqueda = document.getElementById("search");
+const projects = document.querySelectorAll(".project");
+
+busqueda.addEventListener("input", (e) => {
+  const value = e.target.value.toLowerCase();
+  projects.forEach(proj => {
+    const title = proj.dataset.title.toLowerCase();
+    const tags = proj.dataset.tags.toLowerCase();
+    if (title.includes(value) || tags.includes(value)) {
+      proj.style.display = "";
+    } else {
+      proj.style.display = "none";
+    }
+  });
+});

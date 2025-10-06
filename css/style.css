@@ -14,7 +14,7 @@
   /* morado neón profundo */
   --color-highlight: #ff4f81;
   /* rosa fuerte brillante */
-  --color-cyan: #00e5ff;
+  --color-cyan: #28808a;
   /* color-cyan más vivo */
 
   /* Neutrales */
@@ -80,7 +80,6 @@ nav {
 
 .custom-nav .nav-link:hover {
   color: var(--color-cyan);
-  text-shadow: 0 0 5px var(--color-cyan), 0 0 10px var(--color-cyan), 0 0 20px var(--color-cyan);
 }
 
 .custom-nav .nav-link::after {
@@ -169,7 +168,8 @@ canvas {
   gap: 10px;
 }
 
-.btnGit, .btnWasa {
+.btnGit,
+.btnWasa {
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -362,20 +362,24 @@ canvas {
   color: #fff;
   padding: 10px;
 }
+
 .project-card p {
-  max-height: 4.5rem; /* Limita aprox. a 2 líneas */
+  max-height: 4.5rem;
+  /* Limita aprox. a 2 líneas */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* Muestra solo 2 líneas */
+  -webkit-line-clamp: 4;
+  /* Muestra solo 2 líneas */
   -webkit-box-orient: vertical;
   transition: all 4s ease;
 }
 
 /* Al pasar el mouse, el texto se expande */
 .project-card:hover p {
-  max-height: 200px; /* Se expande */
+  max-height: 200px;
+  /* Se expande */
   -webkit-line-clamp: unset;
 }
 
@@ -408,23 +412,34 @@ canvas {
   color: #f1f1f1;
 }
 
+.accordion-button:not(.collapsed) {
+  background: transparent;
+  color: #fff;
+  border: #000;
+}
+
+.accordion-button::after {
+  filter: invert(1);
+  /* cambia el color (0 = negro, 1 = blanco) */
+}
+
 .accordion-item {
-  background: #1e1e3f;
-  border: none;
+  background: #00000000;
   margin-bottom: 10px;
   border-radius: 8px;
   overflow: hidden;
+  border: 1px solid rgba(0, 255, 255, 0.2);
 }
 
 .accordion-button {
-  background: #ff6b6b;
+  background: transparent;
   color: #fff;
   font-weight: bold;
   box-shadow: none;
 }
 
 .accordion-button.collapsed {
-  background: #e94f4f;
+  background: #e94f4f00;
 }
 
 .accordion-button:focus {
@@ -432,7 +447,7 @@ canvas {
 }
 
 .accordion-body {
-  background: #2a2a4f;
+  background: #2a2a4f00;
   color: #ddd;
   padding: 20px;
   font-size: 0.95rem;
@@ -459,7 +474,7 @@ canvas {
 }
 
 .card-exp {
-  background: linear-gradient(180deg, #3a1c4f, #6a2c70, #b33c86);
+  background: linear-gradient(180deg, transparent 0%, #0a0a1a 40%, #141428 100%);
   padding: 30px 20px;
   border-radius: 15px;
   max-width: 300px;

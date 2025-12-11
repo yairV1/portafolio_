@@ -1,655 +1,545 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <meta name="description" content="Yair Vergara - Full-Stack Developer especializado en JavaScript, PHP y MySQL">
+    <title>Yair Vergara - Full-Stack Developer</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <!-- Favicon -->
-    <link rel="icon" type="" href="img/almuerzo-cohete.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Tu CSS personalizado -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg custom-nav">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Portafolio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <img src="img/menu.gif" width="20px">
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#perfil">Perfil Profesional</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#proyectos">Portafolio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#estudios">Estudios</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencia</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#hobbis">Hobbis</a></li>
-                    </ul>
+    <!-- NAVEGACIÓN-->
+    <nav>
+        <div class="nav-container">
+            <a href="#inicio" class="logo">YV</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- SECCIÓN HERO-->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Yair Vergara</h1>
+                <p class="subtitle">Full-Stack Developer</p>
+                <p>Construyo experiencias web que combinan diseño intuitivo con código limpio y escalable. Especializado
+                    en JavaScript, PHP y MySQL.</p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contacto" class="btn btn-secondary">Contacto</a>
                 </div>
             </div>
-        </nav>
-
-        <hero class="hero d-flex align-items-center">
-            <div class="container">
-                <div class="row align-items-center">
-
-                    <!-- Texto a la izquierda -->
-                    <div class="col-md-5 text-white">
-                        <canvas id="stars"></canvas>
-                        <h1 class="fw-bold">Yair Andrey</h1>
-                        <h4 class="fw-normal text-light">Vergara Avila</h4>
-                        <p class="lead sub mb-4">Desarrollador con enfoque en soluciones digitales innovadoras. Combino
-                            diseño, código y buenas prácticas para entregar proyectos funcionales, escalables y de alto
-                            impacto.</p>
-                        <div class="botones">
-                            <!-- Botón estilo GitHub -->
-                            <a href="https://github.com/yairV1" target="_blank" class="btnGit">
-                                <i class="bi bi-github"></i> GitHub
-                            </a>
-
-                            <!-- Botón estilo WhatsApp -->
-                            <a href="https://wa.me/573212569376" target="_blank" class="btnWasa">
-                                <i class="bi bi-whatsapp"></i> WhatsApp
-                            </a>
-                        </div>
-
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <span class="window-dot dot-red"></span>
+                        <span class="window-dot dot-yellow"></span>
+                        <span class="window-dot dot-green"></span>
                     </div>
-
-                    <!-- Imagen a la derecha -->
-                    <div class="col-md-7 text-center ">
-                        <img src="img/pc.png" alt="Laptop futurista" class="img-fluid hero-img w-600">
-                    </div>
-
-
-                </div>
-            </div>
-
-        </hero>
-
-    </header>
-
-    <main>
-        <section id="perfil">
-            <div class="container py-5">
-                <div class="row align-items-center perfil-card">
-                    <!-- Imagen -->
-                    <div class="col-md-4 text-center mb-3 mb-md-0">
-                        <img src="img/yotas.png" alt="Foto Perfil">
-                    </div>
-                    <!-- Texto -->
-                    <div class="col-md-7">
-                        <h3 class="perfil-titulo">Perfil Profesional</h3>
-                        <p>
-                            Profesional motivado y en busca de oportunidades en una empresa para aplicar mis habilidades
-                            en análisis y desarrollo de software.
-                            Mi objetivo es contribuir a un equipo innovador y desarrollar mi carrera en un entorno
-                            desafiante.
-                            Poseo una sólida formación en desarrollo y asistencia administrativa y estoy dispuesto a
-                            aprender y crecer constantemente.
-                        </p>
+                    <div class="code-block">
+                        <div class="code-line"><span class="keyword">const</span> <span
+                                class="function">developer</span> = {</div>
+                        <div class="code-line"> name: <span class="string">'Yair Vergara'</span>,</div>
+                        <div class="code-line"> role: <span class="string">'Full-Stack Developer'</span>,</div>
+                        <div class="code-line"> skills: [<span class="string">'JavaScript'</span>, <span
+                                class="string">'PHP'</span>, <span class="string">'MySQL'</span>],</div>
+                        <div class="code-line"> passion: <span class="string">'Crear soluciones'</span></div>
+                        <div class="code-line">};</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="habilidades" class="habilidades py-5">
-            <div class="container">
-                <h2 class="text-center mb-4 fw-bold">Mis Habilidades</h2>
-
-                <!-- Tabs -->
-                <ul class="nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-frontend-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-frontend" type="button" role="tab" aria-controls="pills-frontend"
-                            aria-selected="true">Frontend</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-backend-tab" data-bs-toggle="pill"
-                            data-bs-target="#pills-backend" type="button" role="tab" aria-controls="pills-backend"
-                            aria-selected="false">Backend</button>
-                    </li>
-                </ul>
-
-                <div class="tab-content" id="pills-tabContent">
-
-                    <!-- FRONTEND -->
-                    <div class="tab-pane fade show active" id="pills-frontend" role="tabpanel"
-                        aria-labelledby="pills-frontend-tab" tabindex="0">
-
-                        <div id="carouselFrontend" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-
-                                <!-- Slide 1 -->
-                                <div class="carousel-item active">
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <div class="card habilidad-card p-4 text-center">
-                                                <i class="bi bi-code-slash display-4 text-primary mb-3"></i>
-                                                <h5>HTML</h5>
-                                                <p>Estructura de páginas web.</p>
-                                                <div class="progress mt-2">
-                                                    <div class="progress-bar bg-primary" style="width: 90%">90%</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="card habilidad-card p-4 text-center">
-                                                <i class="bi bi-palette display-4 text-info mb-3"></i>
-                                                <h5>CSS</h5>
-                                                <p>Estilos y diseño responsivo.</p>
-                                                <div class="progress mt-2">
-                                                    <div class="progress-bar bg-info" style="width: 85%">85%</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 2 -->
-                                <div class="carousel-item">
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <div class="card habilidad-card p-4 text-center">
-                                                <i class="bi bi-lightning-charge-fill display-4 text-warning mb-3"></i>
-                                                <h5>JavaScript</h5>
-                                                <p>Interactividad y lógica en el navegador.</p>
-                                                <div class="progress mt-2">
-                                                    <div class="progress-bar bg-warning" style="width: 75%">75%</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="card habilidad-card p-4 text-center">
-                                                <i class="bi bi-brush display-4 text-danger mb-3"></i>
-                                                <h5>Figma</h5>
-                                                <p>Diseño UI/UX profesional.</p>
-                                                <div class="progress mt-2">
-                                                    <div class="progress-bar bg-danger" style="width: 70%">70%</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- Controles -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselFrontend"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselFrontend"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- BACKEND -->
-                    <div class="tab-pane fade" id="pills-backend" role="tabpanel" aria-labelledby="pills-backend-tab"
-                        tabindex="0">
-
-                        <div id="carouselBackend" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-
-                                <!-- Slide 1 -->
-                                <div class="carousel-item active">
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <div class="card habilidad-card p-4 text-center">
-                                                <i class="bi bi-filetype-php display-4 text-secondary mb-3"></i>
-                                                <h5>PHP</h5>
-                                                <p>Lenguaje de servidor.</p>
-                                                <div class="progress mt-2">
-                                                    <div class="progress-bar bg-secondary" style="width: 80%">80%</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="card habilidad-card p-4 text-center">
-                                                <i class="bi bi-database display-4 text-success mb-3"></i>
-                                                <h5>MySQL</h5>
-                                                <p>Gestión de bases de datos.</p>
-                                                <div class="progress mt-2">
-                                                    <div class="progress-bar bg-success" style="width: 75%">75%</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 2 -->
-                                <div class="carousel-item">
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <div class="card habilidad-card p-4 text-center">
-                                                <i class="bi bi-git display-4 text-danger mb-3"></i>
-                                                <h5>Git & GitHub</h5>
-                                                <p>Control de versiones y colaboración.</p>
-                                                <div class="progress mt-2">
-                                                    <div class="progress-bar bg-danger" style="width: 85%">85%</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- Controles -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselBackend"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselBackend"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
+    <!-- SECCIÓN SOBRE MÍ + CARNET 3D-->
+    <section id="sobre-mi">
+        <div class="section-header">
+            <h2>Sobre mí</h2>
+            <p>De la atención al cliente al código</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Desarrollador con perspectiva única</h3>
+                <p>Desarrollador full-stack con experiencia en JavaScript, PHP y MySQL. Me especializo en crear
+                    aplicaciones web funcionales con interfaces intuitivas.</p>
+                <p>Mi background diverso—desde atención al cliente hasta soldadura industrial—me ha dado una perspectiva
+                    única: entiendo que el código debe resolver problemas reales de forma práctica.</p>
+                <p>Cada línea de código que escribo viene respaldada por años de experiencia en precisión, atención al
+                    detalle y servicio al cliente. No solo construyo aplicaciones, creo soluciones que la gente
+                    realmente quiere usar.</p>
             </div>
-        </section>
 
-        <section id="proyectos">
-            <div class="container container-narrow">
-                <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h2 class="section-title mb-0">Proyectos destacados</h2>
-                    <div class="input-group" style="max-width: 500px;">
-                        <span class="input-group-text glass border-0"><i class="bi bi-search"></i></span>
-                        <input id="search" class="form-control glass border-0" placeholder="Buscar proyectos..." />
+            <!-- CARNET PROFESIONAL 3D -->
+            <div class="lanyard-container">
+                <div class="rope"></div>
+                <div class="id-card" id="idCard">
+                    <div class="holographic-strip"></div>
+                    <div class="watermark">YV</div>
+
+                    <div class="card-header">
+                        <div class="company-logo">YV</div>
+                        <div class="card-title">Identificación Profesional</div>
+                        <div class="card-subtitle">Full-Stack Developer</div>
                     </div>
-                </div>
 
-                <div class="row g-4" id="projectsGrid">
-                    <!-- Proyecto 1 -->
-                    <div class="col-md-6 col-lg-4 project" data-title="gym" data-tags="marketing,animation">
-                        <div class="project-card h-100 p-3 reveal">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <span class="tag">Animación</span>
-                                <span class="tag">Bootstrap</span>
+                    <div class="photo-container">
+                        <img class="foto" src="img/yotas.png" alt="Yair Vergara"
+                            onerror="this.src='https://ui-avatars.com/api/?name=Yair+Vergara&size=200&background=667eea&color=fff&bold=true'">
+                    </div>
+
+                    <div class="card-content">
+                        <h2 class="nombre">Yair Vergara</h2>
+                        <p class="cargo">Desarrollador Full Stack</p>
+
+                        <div class="info-section">
+                            <div class="info-row">
+                                <div class="info-icon">
+                                    <i class="bi bi-envelope-fill"></i>
+                                </div>
+                                <div class="info-text">
+                                    <div class="info-label">Email</div>
+                                    <div class="info-value">yandrey2007@gmail.com</div>
+                                </div>
                             </div>
-                            <h5 class="fw-bold mb-2">Gym</h5>
-                            <p>
-                                Landing page moderna para un gimnasio, con secciones de servicios, planes y contacto.
-                                Diseño responsivo, animaciones ligeras y enfoque en la conversión de clientes.
-                            </p>
 
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="#" class="btn btn-sm btn-outline-light demo-btn" data-bs-toggle="offcanvas"
-                                    data-bs-target="#demoPreview" data-demo="https://yairv1.github.io/mi-gym/">
-                                    Demo
-                                </a>
-                                <a href="https://github.com/yairV1/mi-gym" target="_blank"
-                                    class="btn btn-sm btn-primary">Código</a>
+                            <div class="info-row">
+                                <div class="info-icon">
+                                    <i class="bi bi-code-square"></i>
+                                </div>
+                                <div class="info-text">
+                                    <div class="info-label">Especialidad</div>
+                                    <div class="info-value">JavaScript, PHP, MySQL</div>
+                                </div>
+                            </div>
+
+                            <div class="info-row">
+                                <div class="info-icon">
+                                    <i class="bi bi-calendar-check"></i>
+                                </div>
+                                <div class="info-text">
+                                    <div class="info-label">Miembro desde</div>
+                                    <div class="info-value">2024</div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Proyecto 2 -->
-                    <div class="col-md-6 col-lg-4 project" data-title="panto" data-tags="marketing,animation">
-                        <div class="project-card h-100 p-3 reveal">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <span class="tag">Animación</span>
-                                <span class="tag">Performance</span>
-                            </div>
-                            <h5 class="fw-bold mb-2">Panto</h5>
-                            <p>Página enfocada en marketing digital con animaciones fluidas y alto rendimiento. Diseño
-                                responsivo con especial cuidado en la experiencia del usuario y tiempos de carga.
-                            </p>
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="#" class="btn btn-sm btn-outline-light demo-btn" data-bs-toggle="offcanvas"
-                                    data-bs-target="#demoPreview" data-demo="https://yairv1.github.io/boostrap/">
-                                    Demo
-                                </a>
-                                <a href="https://github.com/yairV1/boostrap" target="_blank"
-                                    class="btn btn-sm btn-primary">Código</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Proyecto 3 -->
-                    <div class="col-md-6 col-lg-4 project" data-title="figuras" data-tags="marketing,animation">
-                        <div class="project-card h-100 p-3 reveal">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <span class="tag">Animación</span>
-                                <span class="tag">Performance</span>
-                            </div>
-                            <h5 class="fw-bold mb-2">Figuras</h5>
-                            <p>Aplicación web en JavaScript que permite calcular áreas y perímetros de figuras
-                                geométricas con resultados en tiempo real y diseño educativo.</p>
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="https://yairv1.github.io/figuras_JS/" target="_blank"
-                                    class="btn btn-sm btn-outline-light">
-                                    Página
-                                </a>
-
-                                <a href="https://github.com/yairV1/figuras_JS" target="_blank"
-                                    class="btn btn-sm btn-primary">Código</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Proyecto 4 -->
-                    <div class="col-md-6 col-lg-4 project" data-title="simulador" data-tags="marketing,animation">
-                        <div class="project-card h-100 p-3 reveal">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <span class="tag">Animación</span>
-                                <span class="tag">Performance</span>
-                            </div>
-                            <h5 class="fw-bold mb-2">Simulador de Inversión</h5>
-                            <p>
-                                Aplicación interactiva en JavaScript que permite calcular rendimientos de inversión
-                                en tiempo real. Incluye animaciones dinámicas y una interfaz moderna enfocada en la
-                                experiencia del usuario.
-                            </p>
-
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="https://yairv1.github.io/similador_invercion_js/" target="_blank"
-                                    class="btn btn-sm btn-outline-light">
-                                    Página
-                                </a>
-                                <a href="https://github.com/yairV1/similador_invercion_js" target="_blank"
-                                    class="btn btn-sm btn-primary">Código</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Proyecto 5 -->
-                    <div class="col-md-6 col-lg-4 project" data-title="todo" data-tags="marketing,animation">
-                        <div class="project-card h-100 p-3 reveal">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <span class="tag">Animación</span>
-                                <span class="tag">Performance</span>
-                            </div>
-                            <h5 class="fw-bold mb-2">To-Do List</h5>
-                            <p>
-                                Aplicación web desarrollada en JavaScript que permite crear, editar y eliminar tareas
-                                en tiempo real. Incluye almacenamiento en LocalStorage para guardar las actividades y
-                                un diseño intuitivo enfocado en la productividad diaria.
-                            </p>
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="#" class="btn btn-sm btn-outline-light demo-btn" data-bs-toggle="offcanvas"
-                                    data-bs-target="#demoPreview" data-demo="https://yairv1.github.io/To_do_list_js/">
-                                    Demo
-                                </a>
-                                <a href="https://github.com/yairV1/To_do_list_js" target="_blank"
-                                    class="btn btn-sm btn-primary">Código</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Proyecto 6 -->
-                    <div class="col-md-6 col-lg-4 project" data-title="vehiculos" data-tags="marketing,animation">
-                        <div class="project-card h-100 p-3 reveal">
-                            <div class="d-flex align-items-center justify-content-between mb-2">
-                                <span class="tag">Animación</span>
-                                <span class="tag">Performance</span>
-                            </div>
-                            <h5 class="fw-bold mb-2">Base de Vehículos Dinámicos</h5>
-                            <p>
-                                Aplicación web interactiva que permite registrar, visualizar y gestionar vehículos de
-                                forma dinámica.
-                                Desarrollada con HTML, CSS y JavaScript, incluye funcionalidades de almacenamiento local
-                                (LocalStorage),
-                                generación automática de tarjetas, compra simulada y eliminación persistente sin perder
-                                datos al recargar la página.
-                            </p>
-
-
-                            <div class="d-flex gap-2 mt-auto">
-                                <a href="https://yairv1.github.io/base-vehiculos-dinamicos/" target="_blank"
-                                    class="btn btn-sm btn-outline-light">
-                                    Página
-                                </a>
-                                <a href="https://github.com/yairV1/base-vehiculos-dinamicos" target="_blank"
-                                    class="btn btn-sm btn-primary">Código</a>
-                            </div>
-                        </div>
+                    <div class="qr-code">
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
+                        <div class="qr-pixel"></div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="estudios" class="estudios py-5">
-            <div class="container">
-                <div class="row">
+    <!-- SECCIÓN HABILIDADES-->
+    <section id="habilidades">
+        <div class="container">
+            <h2 class="text-center mb-5">Mis Habilidades</h2>
 
-                    <!-- Texto -->
-                    <div class="col-md-6 mb-4 mb-md-0">
-                        <h2 class="fw-bold mb-3">Estudios</h2>
-                        <p>
-                            A lo largo de mi trayectoria, he cultivado una sólida base de conocimientos y habilidades en
-                            diversas áreas,
-                            buscando siempre la excelencia y la actualización constante.
-                            Mi formación académica es amplia y diversa, diseñada para proporcionarme una perspectiva
-                            integral
-                            y una capacidad de análisis profunda.
-                        </p>
-                    </div>
+            <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-frontend-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-frontend" type="button" role="tab">Frontend</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-backend-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-backend" type="button" role="tab">Backend</button>
+                </li>
+            </ul>
 
-                    <!-- Acordeón -->
-                    <div class="col-md-6">
-                        <div class="accordion" id="accordionEstudios">
-
-                            <!-- Item 1 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#estudio1">
-                                        TÉCNICO EN ASISTENCIA ADMINISTRATIVA
-                                    </button>
-                                </h2>
-                                <div id="estudio1" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionEstudios">
-                                    <div class="accordion-body">
-                                        El Técnico en Asistencia Administrativa es un profesional capacitado para apoyar
-                                        los procesos
-                                        organizacionales en áreas como archivo, atención al cliente, manejo documental,
-                                        contabilidad básica
-                                        y gestión administrativa. Su formación le permite ejecutar tareas operativas de
-                                        apoyo que contribuyen
-                                        al buen funcionamiento de una empresa, aplicando normas éticas, técnicas y de
-                                        calidad.
+            <div class="tab-content" id="pills-tabContent">
+                <!-- FRONTEND -->
+                <div class="tab-pane fade show active" id="pills-frontend" role="tabpanel">
+                    <div id="carouselFrontend" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="card habilidad-card text-center">
+                                            <i class="bi bi-code-slash text-primary"></i>
+                                            <h5>HTML</h5>
+                                            <p>Estructura de páginas web.</p>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-primary" style="width: 90%">90%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card habilidad-card text-center">
+                                            <i class="bi bi-palette text-info"></i>
+                                            <h5>CSS</h5>
+                                            <p>Estilos y diseño responsivo.</p>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-info" style="width: 85%">85%</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Item 2 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#estudio2">
-                                        SOLDADURA DE PRODUCTOS METÁLICOS EN PLATINA
-                                    </button>
-                                </h2>
-                                <div id="estudio2" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionEstudios">
-                                    <div class="accordion-body">
-                                        Formación en procesos de soldadura aplicada a productos metálicos en platina,
-                                        con enfoque en seguridad, calidad y técnicas de fabricación industrial.
+                            <div class="carousel-item">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="card habilidad-card text-center">
+                                            <i class="bi bi-lightning-charge-fill text-warning"></i>
+                                            <h5>JavaScript</h5>
+                                            <p>Interactividad y lógica en el navegador.</p>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-warning" style="width: 75%">75%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card habilidad-card text-center">
+                                            <i class="bi bi-brush text-danger"></i>
+                                            <h5>Figma</h5>
+                                            <p>Diseño UI/UX profesional.</p>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-danger" style="width: 70%">70%</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- Item 3 -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#estudio3">
-                                        COMPLEMENTARIA VIRTUAL EN MODELOS DE CALIDAD DE SOFTWARE
-                                    </button>
-                                </h2>
-                                <div id="estudio3" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionEstudios">
-                                    <div class="accordion-body">
-                                        Curso complementario orientado a la comprensión de modelos de calidad en el
-                                        desarrollo de software,
-                                        aplicando buenas prácticas y estándares internacionales.
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselFrontend"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselFrontend"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
                     </div>
+                </div>
 
+                <!-- BACKEND -->
+                <div class="tab-pane fade" id="pills-backend" role="tabpanel">
+                    <div id="carouselBackend" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="card habilidad-card text-center">
+                                            <i class="bi bi-filetype-php text-secondary"></i>
+                                            <h5>PHP</h5>
+                                            <p>Lenguaje de servidor.</p>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-secondary" style="width: 80%">80%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card habilidad-card text-center">
+                                            <i class="bi bi-database text-success"></i>
+                                            <h5>MySQL</h5>
+                                            <p>Gestión de bases de datos.</p>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" style="width: 75%">75%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row g-4">
+                                    <div class="col-md-6">
+                                        <div class="card habilidad-card text-center">
+                                            <i class="bi bi-git text-danger"></i>
+                                            <h5>Git & GitHub</h5>
+                                            <p>Control de versiones y colaboración.</p>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-danger" style="width: 85%">85%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselBackend"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselBackend"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="experiencia" id="experiencia">
+    <!-- SECCIÓN PROYECTOS-->
+    <section id="proyectos">
+        <div class="section-header">
+            <h2>Proyectos Destacados</h2>
+            <p>Soluciones web que resuelven problemas reales</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Gym Landing Page</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">Bootstrap</span>
+                </div>
+                <p class="project-description">Landing page optimizada para gimnasio con diseño responsivo y animaciones
+                    ligeras. Enfoque en conversión de clientes con CTAs estratégicos.</p>
+                <div class="project-links">
+                    <a href="https://yairv1.github.io/mi-gym/" target="_blank" class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/mi-gym" target="_blank" class="btn btn-primary">Código</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Panto Marketing</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">Performance</span>
+                </div>
+                <p class="project-description">Página de marketing digital con animaciones fluidas y alto rendimiento.
+                    Optimizada para tiempos de carga rápidos y experiencia de usuario superior.</p>
+                <div class="project-links">
+                    <a href="https://yairv1.github.io/boostrap/" target="_blank" class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/boostrap" target="_blank" class="btn btn-primary">Código</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Calculadora de Figuras</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Math</span>
+                    <span class="tech-tag">UI/UX</span>
+                </div>
+                <p class="project-description">Aplicación web educativa para calcular áreas y perímetros de figuras
+                    geométricas con resultados en tiempo real y diseño intuitivo.</p>
+                <div class="project-links">
+                    <a href="https://yairv1.github.io/figuras_JS/" target="_blank" class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/figuras_JS" target="_blank" class="btn btn-primary">Código</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Simulador de Inversión</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Finance</span>
+                    <span class="tech-tag">Interactive</span>
+                </div>
+                <p class="project-description">Calculadora interactiva de rendimientos de inversión con interfaz moderna
+                    y cálculos en tiempo real. Incluye visualizaciones dinámicas.</p>
+                <div class="project-links">
+                    <a href="https://yairv1.github.io/similador_invercion_js/" target="_blank"
+                        class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/similador_invercion_js" target="_blank"
+                        class="btn btn-primary">Código</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>To-Do List</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">LocalStorage</span>
+                    <span class="tech-tag">CRUD</span>
+                </div>
+                <p class="project-description">Gestor de tareas con persistencia de datos usando LocalStorage. Permite
+                    crear, editar y eliminar tareas con interfaz intuitiva.</p>
+                <div class="project-links">
+                    <a href="https://yairv1.github.io/To_do_list_js/" target="_blank" class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/To_do_list_js" target="_blank" class="btn btn-primary">Código</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Base de Vehículos</h3>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">LocalStorage</span>
+                    <span class="tech-tag">Dynamic UI</span>
+                </div>
+                <p class="project-description">Sistema de gestión de vehículos con generación dinámica de tarjetas,
+                    almacenamiento local y funcionalidades CRUD completas.</p>
+                <div class="project-links">
+                    <a href="https://yairv1.github.io/base-vehiculos-dinamicos/" target="_blank"
+                        class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/base-vehiculos-dinamicos" target="_blank"
+                        class="btn btn-primary">Código</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN EXPERIENCIA-->
+    <section id="experiencia">
+        <div class="section-header">
             <h2>Experiencia</h2>
-
-            <div class="experiencia-contenedor">
-                <!-- Card 1 -->
-                <div class="card-exp">
-                    <img src="img/mesero.jpg" alt="mesero">
-                    <p>
-                        Inicié mi experiencia laboral como <strong>mesero</strong>, donde desarrollé habilidades en
-                        atención al
-                        cliente, trabajo en equipo y resolución rápida de problemas. Esta etapa fortaleció mi
-                        comunicación y disciplina profesional.
-                    </p>
+            <p>Mi trayectoria única que forma mi perspectiva como desarrollador</p>
+        </div>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <h3>Desarrollador Web</h3>
+                <p class="period">Actual · Proyectos independientes</p>
+                <p>Desarrollo de aplicaciones web completas con JavaScript, PHP y MySQL. Enfoque en código limpio,
+                    responsive design y experiencia de usuario.</p>
+                <div class="learning">
+                    <strong>Aplicando:</strong> Todas las habilidades de mis experiencias anteriores en cada línea de
+                    código.
                 </div>
-
-                <!-- Card 2 -->
-                <div class="card-exp">
-                    <img src="img/soldadura.png" alt="soldadura">
-                    <p>
-                        Posteriormente trabajé en el área de <strong>soldadura industrial</strong>, adquiriendo
-                        conocimientos sobre
-                        precisión, responsabilidad y cumplimiento de estándares de calidad. Esta experiencia reforzó mi
-                        enfoque en el detalle y la seguridad.
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="card-exp">
-                    <img src="img/panadero.png" alt="panadero">
-                    <p>
-                        Más adelante, como <strong>panadero</strong>, aprendí sobre procesos, organización y mejora
-                        continua.
-                        Gracias a ello desarrollé una mentalidad metódica y la capacidad de optimizar tiempos de
-                        producción.
-                    </p>
-                </div>
-
-                <!-- Card 4 (opcional, para conectar con tu perfil actual) -->
-                <!-- <div class="card-exp">
-                    <img src="img/programador.png" alt="programador">
-                    <p>
-                        Actualmente me desempeño como <strong>desarrollador web junior</strong>, aplicando mis
-                        conocimientos en
-                        HTML, CSS, JavaScript y frameworks modernos. Busco crear soluciones funcionales y atractivas,
-                        combinando creatividad y lógica.
-                    </p>
-                </div> -->
             </div>
 
-        </section>
-
-        <section id="hobbis" class="hobbis">
-            <h2>Hobbies</h2>
-            <div class="hobbies-container">
-
-                <div class="hobby-card">
-                    <img src="img/libti.jpg" alt="Leer">
-                    <div class="hobby-overlay">
-                        <h3>Leer</h3>
-                        <p>Disfruto de la lectura porque me permite aprender, inspirarme y relajarme.</p>
-                    </div>
+            <div class="experience-item">
+                <h3>Atención al Cliente</h3>
+                <p class="period">2 años · Sector servicios</p>
+                <p>Gestión de múltiples tareas bajo presión, desarrollo de habilidades de comunicación y comprensión
+                    profunda de las necesidades del usuario.</p>
+                <div class="learning">
+                    <strong>Hoy aplico esto en:</strong> UX/UI thinking, priorización de features y empatía con el
+                    usuario final.
                 </div>
-
-                <div class="hobby-card">
-                    <img src="img/musi.jpg" alt="Música">
-                    <div class="hobby-overlay">
-                        <h3>Música</h3>
-                        <p>Escuchar música me ayuda a concentrarme y disfrutar de mis momentos libres.</p>
-                    </div>
-                </div>
-
-                <div class="hobby-card">
-                    <img src="img/paisaje.jpg" alt="Naturaleza">
-                    <div class="hobby-overlay">
-                        <h3>Naturaleza</h3>
-                        <p>Me encanta explorar y conectarme con la tranquilidad de los paisajes.</p>
-                    </div>
-                </div>
-
             </div>
-        </section>
 
-    </main>
+            <div class="experience-item">
+                <h3>Soldador Industrial</h3>
+                <p class="period">1 año · Manufactura</p>
+                <p>Precisión milimétrica, seguimiento estricto de estándares de calidad y protocolos de seguridad en
+                    entornos de alta responsabilidad.</p>
+                <div class="learning">
+                    <strong>Hoy aplico esto en:</strong> Clean code, testing, documentación y atención al detalle en
+                    cada proyecto.
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Mis hobbies -->
+     <section id="hobbis" class="hobbis">
+        <h2>Hobbies</h2>
+        <div class="hobbies-container">
+
+            <div class="hobby-card">
+                <img src="img/libti.jpg" alt="Leer">
+                <div class="hobby-overlay">
+                    <h3>Leer</h3>
+                    <p>Disfruto de la lectura porque me permite aprender, inspirarme y relajarme.</p>
+                </div>
+            </div>
+
+            <div class="hobby-card">
+                <img src="img/musi.jpg" alt="Música">
+                <div class="hobby-overlay">
+                    <h3>Música</h3>
+                    <p>Escuchar música me ayuda a concentrarme y disfrutar de mis momentos libres.</p>
+                </div>
+            </div>
+
+            <div class="hobby-card">
+                <img src="img/paisaje.jpg" alt="Naturaleza">
+                <div class="hobby-overlay">
+                    <h3>Naturaleza</h3>
+                    <p>Me encanta explorar y conectarme con la tranquilidad de los paisajes.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- SECCIÓN CONTACTO-->
+    <section id="contacto">
+        <div class="cta-section">
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p>Hablemos de cómo puedo ayudarte a llevarlo a cabo.<br>Respondo en menos de 24 horas.</p>
+            <div class="contact-methods">
+                <a href="mailto:yandrey2007@gmail.com" class="btn btn-primary">
+                    <i class="bi bi-envelope-fill"></i> Email
+                </a>
+                <a href="https://wa.me/573212569376" target="_blank" class="btn btn-secondary">
+                    <i class="bi bi-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://www.linkedin.com/in/yair-vergara-163043309/" target="_blank" class="btn btn-secondary">
+                    <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
+                <a href="file:///C:/Users/ASUS/Downloads/Hoja%20de%20vida%20aprendiz-2.pdf" target="_blank"
+                    class="btn btn-secondary">
+                    <i class="bi bi-file-earmark-fill"></i> Hoja de Vida
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER-->
     <footer>
-        <div class="footer-container">
-            <!-- Izquierda -->
-            <div class="footer-section">
-                <h3>¿Quieres trabajar conmigo o saber más?</h3>
-                <p>Escríbeme:</p>
-                <div class="social-links">
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/yair-vergara-163043309/" target="_blank"
-                        class="social-btn flex-center">
-                        <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z">
-                            </path>
-                        </svg>
-                        <span>Yair Vergara</span>
-                    </a>
-
-                    <!-- GitHub -->
-                    <a href="https://github.com/yairV1" target="_blank" class="social-btn flex-center">
-                        <svg viewBox="0 0 24 24" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                            </path>
-                        </svg>
-                        <span>Yair Vergara</span>
-                    </a>
-                </div>
-            </div>
+        <div class="social-links">
+            <a href="https://github.com/yairV1" target="_blank" title="GitHub">
+                <i class="bi bi-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yair-vergara-163043309/" target="_blank" title="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://wa.me/573212569376" target="_blank" title="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+            </a>
         </div>
-
-        <!-- Inferior -->
-        <div class="footer-bottom">
-            <p>© 2025 Yair Vergara</p>
-            <div class="radio">
-                <!-- Tus estrellas de valoración aquí -->
-            </div>
-        </div>
+        <p>&copy; 2025 Yair Vergara. Construido con pasión y código limpio</p>
     </footer>
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
+    <!-- Tu JavaScript personalizado -->
     <script src="js/main.js"></script>
 </body>
-<!-- Offcanvas lateral -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="demoPreview" aria-labelledby="demoPreviewLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="demoPreviewLabel">Vista previa</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
-    </div>
-    <div class="offcanvas-body p-0">
-        <!-- Contenedor tipo “celular” -->
-        <div class="phone-frame mx-auto my-3">
-            <iframe id="demoFrame" src="" frameborder="0"></iframe>
-        </div>
-    </div>
-</div>
 
 </html>

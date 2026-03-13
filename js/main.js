@@ -1,244 +1,225 @@
-// ============================================
-// NAVEGACIÓN MÓVIL
-// ============================================
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
+/* ═══════════════════════════════════════════════════
+   YAIR VERGARA — Portfolio JS
+   Navbar · Cursor · Reveal · Tabs · 3D Card · Gyro
+   ═══════════════════════════════════════════════════ */
 
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+(function () {
+  'use strict';
 
-// Cerrar menú al hacer clic en un enlace
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-  });
-});
+  /* ─── 1. NAVBAR ─────────────────────────────────── */
+  const navbar    = document.getElementById('navbar');
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks   = document.getElementById('navLinks');
+  const allNavLinks = document.querySelectorAll('.nav-links a');
 
-// ============================================
-// SCROLL SUAVE
-// ============================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+    updateActiveLink();
+  }, { passive: true });
 
-// ============================================
-// NAVBAR ACTIVO SEGÚN SCROLL
-// ============================================
-const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (pageYOffset >= sectionTop - 100) {
-      current = section.getAttribute('id');
-    }
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  navItems.forEach(item => {
-    item.classList.remove('active');
-    if (item.getAttribute('href') === `#${current}`) {
-      item.classList.add('active');
-    }
-  });
-});
-
-// ============================================
-// ANIMACIONES AL HACER SCROLL
-// ============================================
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-}, observerOptions);
-
-// Aplicar animación a elementos
-document.querySelectorAll('.project-card, .experience-item, .habilidad-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
-});
-
-// ============================================
-// ANIMACIÓN BARRAS DE PROGRESO
-// ============================================
-const progressObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const bars = entry.target.querySelectorAll('.progress-bar');
-      bars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0%';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 100);
-      });
-      progressObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.carousel-item').forEach(item => {
-  progressObserver.observe(item);
-});
-
-// ============================================
-// CONTROL DE TABS - HABILIDADES
-// ============================================
-const tabButtons = document.querySelectorAll('[data-bs-toggle="pill"]');
-
-tabButtons.forEach(button => {
-  button.addEventListener('shown.bs.tab', function () {
-    // Re-animar barras cuando cambie de tab
-    const activePane = document.querySelector(button.getAttribute('data-bs-target'));
-    const bars = activePane.querySelectorAll('.progress-bar');
-
-    bars.forEach(bar => {
-      const width = bar.style.width;
-      bar.style.width = '0%';
-      setTimeout(() => {
-        bar.style.width = width;
-      }, 100);
+  allNavLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.classList.remove('open');
+      document.body.style.overflow = '';
     });
   });
+
+  function updateActiveLink() {
+    const sections = document.querySelectorAll('section[id]');
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+    });
+    allNavLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  /* ─── 2. CURSOR PERSONALIZADO ───────────────────── */
+  const cursor   = document.getElementById('cursor');
+  const follower = document.getElementById('cursor-follower');
+
+  if (cursor && follower && window.matchMedia('(pointer: fine)').matches) {
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursor.style.left = mouseX + 'px';
+      cursor.style.top  = mouseY + 'px';
+    });
+
+    function animateCursor() {
+      followerX += (mouseX - followerX) * 0.12;
+      followerY += (mouseY - followerY) * 0.12;
+      follower.style.left = followerX + 'px';
+      follower.style.top  = followerY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('a, button, .skill-card, .project-card, #card-wrap').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+        follower.classList.add('hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
+        follower.classList.remove('hover');
+      });
+    });
+  }
+
+  /* ─── 3. SCROLL REVEAL ──────────────────────────── */
+  const revealEls = document.querySelectorAll('[data-reveal]');
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealEls.forEach(el => observer.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('visible'));
+  }
+
+/* ─── TABS HABILIDADES ─── */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    // Reanimar las barras del panel que acaba de aparecer
+    animateBarsIn(document.getElementById('tab-' + btn.dataset.tab));
+  });
 });
 
-// ============================================
-// MEJORAR NAVEGACIÓN DEL CARRUSEL
-// ============================================
-const carousels = document.querySelectorAll('.carousel');
-
-carousels.forEach(carousel => {
-  // Pausar autoplay al hover
-  carousel.addEventListener('mouseenter', function () {
-    const bsCarousel = bootstrap.Carousel.getInstance(carousel);
-    if (bsCarousel) {
-      bsCarousel.pause();
-    }
+/* ─── ANIMACIÓN DE BARRAS AL HACER SCROLL ─── */
+function animateBarsIn(container) {
+  container.querySelectorAll('.skill-fill').forEach(bar => {
+    bar.classList.remove('animated');
+    void bar.offsetWidth;           // fuerza reflow para reiniciar CSS
+    bar.classList.add('animated');
   });
+}
 
-  carousel.addEventListener('mouseleave', function () {
-    const bsCarousel = bootstrap.Carousel.getInstance(carousel);
-    if (bsCarousel) {
-      bsCarousel.cycle();
+// Observer para activar al entrar en pantalla
+if ('IntersectionObserver' in window) {
+  const skillsSection = document.getElementById('habilidades');
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      const activePanel = skillsSection.querySelector('.tab-panel.active');
+      if (activePanel) animateBarsIn(activePanel);
+      obs.disconnect();
     }
-  });
+  }, { threshold: 0.2 });
 
-  // Soporte para gestos táctiles
-  let touchStartX = 0;
-  let touchEndX = 0;
+  if (skillsSection) obs.observe(skillsSection);
+}
 
-  carousel.addEventListener('touchstart', e => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-
-  carousel.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  });
-
-  function handleSwipe() {
-    const bsCarousel = bootstrap.Carousel.getInstance(carousel);
-    if (!bsCarousel) return;
-
-    if (touchEndX < touchStartX - 50) {
-      bsCarousel.next();
-    }
-    if (touchEndX > touchStartX + 50) {
-      bsCarousel.prev();
-    }
+/* ─── HEREDAR --ic al .skill-card desde el hijo ─── */
+// Para que el ::before del card tome el color correcto
+document.querySelectorAll('.skill-card').forEach(card => {
+  const wrap = card.querySelector('.skill-icon-wrap');
+  if (wrap) {
+    const ic = getComputedStyle(wrap).getPropertyValue('--ic').trim();
+    if (ic) card.style.setProperty('--ic', ic);
   }
 });
 
-// ============================================
-// EFECTO PARALLAX EN ICONOS DE HABILIDADES
-// ============================================
-function addParallaxEffect() {
-  const cards = document.querySelectorAll('.habilidad-card');
+  // Arrastre con mouse
+  wrap.addEventListener('mousedown', e => {
+    isDragging = true;
+    startX = e.clientX; startY = e.clientY;
+    baseX = rotX; baseY = rotY;
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    rotX = Math.max(-50, Math.min(50, baseX - (e.clientY - startY) * 0.45));
+    rotY = baseY + (e.clientX - startX) * 0.45;
+    applyTransform(rotX, rotY);
+  });
+  document.addEventListener('mouseup', () => {
+    if (isDragging) {
+      isDragging = false;
+      targetX = rotX * 0.15;
+      targetY = rotY * 0.15;
+    }
+  });
 
-  cards.forEach(card => {
-    const icon = card.querySelector('i');
-    if (!icon) return;
+  // Arrastre táctil
+  wrap.addEventListener('touchstart', e => {
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    baseX = rotX; baseY = rotY;
+  }, { passive: true });
+  document.addEventListener('touchmove', e => {
+    if (!isDragging) return;
+    rotX = Math.max(-50, Math.min(50, baseX - (e.touches[0].clientY - startY) * 0.45));
+    rotY = baseY + (e.touches[0].clientX - startX) * 0.45;
+    applyTransform(rotX, rotY);
+  }, { passive: true });
+  document.addEventListener('touchend', () => {
+    isDragging = false;
+    targetX = rotX * 0.15;
+    targetY = rotY * 0.15;
+  });
 
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+  // Click para voltear
+  wrap.addEventListener('click', () => {
+    if (Math.abs(rotX - baseX) < 3 && Math.abs(rotY - baseY) < 3) {
+      isFlipped = !isFlipped;
+      applyTransform(rotX, rotY);
+      const hint = document.querySelector('.card-hint');
+      if (hint) hint.textContent = isFlipped
+        ? '🖱 Arrastra · Click = ver frente · 📱 Inclina'
+        : '🖱 Arrastra · Click = voltear · 📱 Inclina';
+    }
+  });
 
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
-
-      icon.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+  // Giroscopio
+  function activarGiroscopio() {
+    if (gyroEnabled) return;
+    gyroEnabled = true;
+    window.addEventListener('deviceorientation', e => {
+      if (isDragging) return;
+      rotX = -Math.max(-35, Math.min(35, e.beta  || 0)) * 0.6;
+      rotY =  Math.max(-35, Math.min(35, e.gamma || 0)) * 0.8;
+      applyTransform(rotX, rotY);
     });
+  }
 
-    card.addEventListener('mouseleave', () => {
-      icon.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-    });
-  });
-}
+  if (window.DeviceOrientationEvent) {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      document.addEventListener('click', () => {
+        DeviceOrientationEvent.requestPermission()
+          .then(s => { if (s === 'granted') activarGiroscopio(); })
+          .catch(() => {});
+      }, { once: true });
+    } else {
+      window.addEventListener('deviceorientation', e => {
+        if (e.alpha !== null) activarGiroscopio();
+      }, { once: true });
+    }
+  }
 
-// Inicializar efecto parallax
-addParallaxEffect();
+  // Quitar animación de entrada
+  setTimeout(() => wrap.classList.remove('drop-in'), 1200);
 
-// ============================================
-// EFECTO 3D DEL CARNET
-// ============================================
-const card = document.getElementById("idCard");
+})();
 
-if (card) {
-  // Efecto 3D mejorado con el mouse
-  card.addEventListener("mousemove", (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = (y - centerY) / 15;
-    const rotateY = (centerX - x) / 15;
-
-    card.style.transform = `
-      perspective(1000px) 
-      rotateX(${rotateX}deg) 
-      rotateY(${rotateY}deg) 
-      scale3d(1.02, 1.02, 1.02)
-    `;
-    card.style.boxShadow = `
-      ${-rotateY * 2}px ${rotateX * 2}px 60px rgba(0,0,0,0.4),
-      0 0 0 1px rgba(255,255,255,0.1)
-    `;
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
-    card.style.boxShadow = "0 30px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.1)";
-  });
-
-  // Animación de entrada suave
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      card.style.transition = "transform 0.1s ease-out, box-shadow 0.1s ease-out";
-    }, 2000);
-  });
-}

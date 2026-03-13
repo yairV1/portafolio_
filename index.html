@@ -14,11 +14,16 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Tu CSS personalizado -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carnet.css">
 </head>
+<!-- ...existing code... -->
+<div id="cursor"></div>
+<div id="cursor-follower"></div>
 
 <body>
     <!-- NAVEGACIÓN-->
@@ -48,7 +53,8 @@
             <div class="hero-text">
                 <h1>Yair Vergara</h1>
                 <p class="subtitle">Full-Stack Developer</p>
-                <p>Construyo experiencias web que combinan diseño intuitivo con código limpio y escalable. Especializado
+                <p>Construyo experiencias web que combinan diseño intuitivo con código limpio y escalable.
+                    Especializado
                     en JavaScript, PHP y MySQL.</p>
                 <div class="hero-buttons">
                     <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
@@ -88,232 +94,296 @@
                 <h3>Desarrollador con perspectiva única</h3>
                 <p>Desarrollador full-stack con experiencia en JavaScript, PHP y MySQL. Me especializo en crear
                     aplicaciones web funcionales con interfaces intuitivas.</p>
-                <p>Mi background diverso—desde atención al cliente hasta soldadura industrial—me ha dado una perspectiva
+                <p>Mi background diverso—desde atención al cliente hasta soldadura industrial—me ha dado una
+                    perspectiva
                     única: entiendo que el código debe resolver problemas reales de forma práctica.</p>
-                <p>Cada línea de código que escribo viene respaldada por años de experiencia en precisión, atención al
+                <p>Cada línea de código que escribo viene respaldada por años de experiencia en precisión, atención
+                    al
                     detalle y servicio al cliente. No solo construyo aplicaciones, creo soluciones que la gente
                     realmente quiere usar.</p>
             </div>
 
             <!-- CARNET PROFESIONAL 3D -->
-            <div class="lanyard-container">
-                <div class="rope"></div>
-                <div class="id-card" id="idCard">
-                    <div class="holographic-strip"></div>
-                    <div class="watermark">YV</div>
 
-                    <div class="card-header">
-                        <div class="company-logo">YV</div>
-                        <div class="card-title">Identificación Profesional</div>
-                        <div class="card-subtitle">Full-Stack Developer</div>
-                    </div>
+            <div id="scene">
+                <div id="card-wrap" class="drop-in">
 
-                    <div class="photo-container">
-                        <img class="foto" src="img/yotas.png" alt="Yair Vergara"
-                            onerror="this.src='https://ui-avatars.com/api/?name=Yair+Vergara&size=200&background=667eea&color=fff&bold=true'">
-                    </div>
+                    <!-- Placeholder para mantener el espacio en el flujo -->
+                    <div id="placeholder"></div>
 
-                    <div class="card-content">
-                        <h2 class="nombre">Yair Vergara</h2>
-                        <p class="cargo">Desarrollador Full Stack</p>
+                    <!-- ══════════════════════════════ FRENTE ══════════════════════════════ -->
+                    <div id="card-front">
 
-                        <div class="info-section">
-                            <div class="info-row">
-                                <div class="info-icon">
-                                    <i class="bi bi-envelope-fill"></i>
-                                </div>
-                                <div class="info-text">
-                                    <div class="info-label">Email</div>
-                                    <div class="info-value">yandrey2007@gmail.com</div>
-                                </div>
+                        <!-- Chip dorado -->
+                        <div class="cf-chip"></div>
+
+                        <!-- Encabezado -->
+                        <div class="cf-header">
+                            <div class="cf-logo">YV</div>
+                            <div>
+                                <div class="cf-org">Identificación Profesional</div>
+                                <div class="cf-role">Full-Stack Developer</div>
                             </div>
+                        </div>
 
-                            <div class="info-row">
-                                <div class="info-icon">
-                                    <i class="bi bi-code-square"></i>
-                                </div>
-                                <div class="info-text">
-                                    <div class="info-label">Especialidad</div>
-                                    <div class="info-value">JavaScript, PHP, MySQL</div>
-                                </div>
+                        <!-- Cuerpo con foto e info -->
+                        <div class="cf-body">
+                            <div class="cf-photo">
+                                <img src="img/yotas.png" alt="Yair Vergara">
                             </div>
+                            <div class="cf-info">
+                                <div class="cf-name">Yair Vergara</div>
+                                <div class="cf-title">Desarrollador Full Stack</div>
 
-                            <div class="info-row">
-                                <div class="info-icon">
-                                    <i class="bi bi-calendar-check"></i>
+                                <!-- Campo: Email -->
+                                <div class="cf-field">
+                                    <div class="cf-icon">
+                                        <svg viewBox="0 0 9 9" fill="none">
+                                            <rect x="1" y="1" width="7" height="7" rx="1" stroke="rgba(120,180,255,0.9)"
+                                                stroke-width="0.9" />
+                                            <path d="M1 3.5h7" stroke="rgba(120,180,255,0.9)" stroke-width="0.9" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="cf-label">Email</div>
+                                        <div class="cf-val">yandrey2007@gmail.com</div>
+                                    </div>
                                 </div>
-                                <div class="info-text">
-                                    <div class="info-label">Miembro desde</div>
-                                    <div class="info-value">2024</div>
+
+                                <!-- Campo: Especialidad -->
+                                <div class="cf-field">
+                                    <div class="cf-icon">
+                                        <svg viewBox="0 0 9 9" fill="none">
+                                            <circle cx="4.5" cy="4.5" r="3.5" stroke="rgba(120,180,255,0.9)"
+                                                stroke-width="0.9" />
+                                            <path d="M4.5 2.5v2l1.3 1" stroke="rgba(120,180,255,0.9)" stroke-width="0.9"
+                                                stroke-linecap="round" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="cf-label">Especialidad</div>
+                                        <div class="cf-val">JavaScript · N8N · CSS</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="qr-code">
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
-                        <div class="qr-pixel"></div>
+                        <!-- Pie con código de barras -->
+                        <div class="cf-footer">
+                            <div>
+                                <div class="cf-label">Miembro desde</div>
+                                <div class="cf-val" style="font-size:9px;margin-top:2px;">2024</div>
+                            </div>
+                            <div class="cf-barcode" id="bc"></div>
+                            <div class="cf-member">YV-2024-001</div>
+                        </div>
+
                     </div>
-                </div>
-            </div>
+                    <!-- ══════════════════════════════ FIN FRENTE ══════════════════════════════ -->
+
+
+                    <!-- ══════════════════════════════ REVERSO ══════════════════════════════ -->
+                    <div id="card-back">
+                        <!-- Banda magnética -->
+                        <div class="cb-strip"></div>
+                        <!-- Zona de firma -->
+                        <div class="cb-sig"></div>
+                        <!-- Datos en texto -->
+                        <div class="cb-info">
+                            NOMBRE: YAIR VERGARA<br>
+                            STACK: JAVASCRIPT / N8N / CSS<br>
+                            TIPO: FULL-STACK DEVELOPER<br>
+                            ID: YV-2024-001-COL
+                        </div>
+                        <!-- QR decorativo -->
+                        <div class="cb-qr" id="qr"></div>
+                        <!-- Icono NFC -->
+                        <svg class="cb-nfc" viewBox="0 0 36 36" fill="none">
+                            <path d="M6 18 Q6 6 18 6" stroke="white" stroke-width="2" stroke-linecap="round" />
+                            <path d="M10 18 Q10 10 18 10" stroke="white" stroke-width="2" stroke-linecap="round" />
+                            <path d="M14 18 Q14 14 18 14" stroke="white" stroke-width="2" stroke-linecap="round" />
+                            <circle cx="18" cy="18" r="2" fill="white" />
+                        </svg>
+                    </div>
+                    <!-- ══════════════════════════════ FIN REVERSO ══════════════════════════════ -->
+
+                </div><!-- fin #card-wrap -->
+
+            </div><!-- fin #scene -->
+
+
         </div>
     </section>
 
-    <!-- SECCIÓN HABILIDADES-->
+    <!-- SECCIÓN HABILIDADES -->
     <section id="habilidades">
         <div class="container">
-            <h2 class="text-center mb-5">Mis Habilidades</h2>
+            <h2 class="skills-title">Mis Habilidades</h2>
 
-            <ul class="nav nav-pills mb-5" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pills-frontend-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-frontend" type="button" role="tab">Frontend</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-backend-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-backend" type="button" role="tab">Backend</button>
-                </li>
-            </ul>
+            <div class="skills-tabs">
+                <div class="tab-btns">
+                    <button class="tab-btn active" data-tab="frontend">
+                        <span class="tab-icon">&#9670;</span> Frontend
+                    </button>
+                    <button class="tab-btn" data-tab="backend">
+                        <span class="tab-icon">&#9670;</span> Backend
+                    </button>
+                </div>
 
-            <div class="tab-content" id="pills-tabContent">
                 <!-- FRONTEND -->
-                <div class="tab-pane fade show active" id="pills-frontend" role="tabpanel">
-                    <div id="carouselFrontend" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div class="card habilidad-card text-center">
-                                            <i class="bi bi-code-slash text-primary"></i>
-                                            <h5>HTML</h5>
-                                            <p>Estructura de páginas web.</p>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-primary" style="width: 90%">90%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card habilidad-card text-center">
-                                            <i class="bi bi-palette text-info"></i>
-                                            <h5>CSS</h5>
-                                            <p>Estilos y diseño responsivo.</p>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-info" style="width: 85%">85%</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="tab-panel active" id="tab-frontend">
+                    <div class="skills-grid">
+
+                        <div class="skill-card">
+                            <div class="skill-card-top">
+                                <div class="skill-icon-wrap" style="--ic:#58a6ff">
+                                    <i class="bi bi-code-slash"></i>
+                                </div>
+                                <div class="skill-meta">
+                                    <h4>HTML</h4>
+                                    <span class="skill-pct">90%</span>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div class="card habilidad-card text-center">
-                                            <i class="bi bi-lightning-charge-fill text-warning"></i>
-                                            <h5>JavaScript</h5>
-                                            <p>Interactividad y lógica en el navegador.</p>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-warning" style="width: 75%">75%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card habilidad-card text-center">
-                                            <i class="bi bi-brush text-danger"></i>
-                                            <h5>Figma</h5>
-                                            <p>Diseño UI/UX profesional.</p>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-danger" style="width: 70%">70%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <p>Estructura semántica de páginas web.</p>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--pct:90%;--ic:#58a6ff"></div>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselFrontend"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselFrontend"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </button>
+
+                        <div class="skill-card">
+                            <div class="skill-card-top">
+                                <div class="skill-icon-wrap" style="--ic:#06b6d4">
+                                    <i class="bi bi-palette"></i>
+                                </div>
+                                <div class="skill-meta">
+                                    <h4>CSS</h4>
+                                    <span class="skill-pct">85%</span>
+                                </div>
+                            </div>
+                            <p>Estilos y diseño responsivo.</p>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--pct:85%;--ic:#06b6d4"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-card-top">
+                                <div class="skill-icon-wrap" style="--ic:#f0883e">
+                                    <i class="bi bi-lightning-charge-fill"></i>
+                                </div>
+                                <div class="skill-meta">
+                                    <h4>JavaScript</h4>
+                                    <span class="skill-pct">75%</span>
+                                </div>
+                            </div>
+                            <p>Interactividad y lógica en el navegador.</p>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--pct:75%;--ic:#f0883e"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-card-top">
+                                <div class="skill-icon-wrap" style="--ic:#ff7b72">
+                                    <i class="bi bi-brush"></i>
+                                </div>
+                                <div class="skill-meta">
+                                    <h4>Figma</h4>
+                                    <span class="skill-pct">70%</span>
+                                </div>
+                            </div>
+                            <p>Diseño UI/UX profesional.</p>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--pct:70%;--ic:#ff7b72"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-card-top">
+                                <div class="skill-icon-wrap" style="--ic:#ff7b72">
+                                    <img src="img/n8n_full_white_logo.png" width="40" alt="">
+                                </div>
+                                <div class="skill-meta">
+                                    <h4>N8n</h4>
+                                    <span class="skill-pct">20%</span>
+                                </div>
+                            </div>
+                            <p>Automatización de flujos de trabajo.</p>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--pct:20%;--ic:#ff7b72"></div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
                 <!-- BACKEND -->
-                <div class="tab-pane fade" id="pills-backend" role="tabpanel">
-                    <div id="carouselBackend" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div class="card habilidad-card text-center">
-                                            <i class="bi bi-filetype-php text-secondary"></i>
-                                            <h5>PHP</h5>
-                                            <p>Lenguaje de servidor.</p>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-secondary" style="width: 80%">80%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="card habilidad-card text-center">
-                                            <i class="bi bi-database text-success"></i>
-                                            <h5>MySQL</h5>
-                                            <p>Gestión de bases de datos.</p>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" style="width: 75%">75%</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                <div class="tab-panel" id="tab-backend">
+                    <div class="skills-grid">
+
+                        <div class="skill-card">
+                            <div class="skill-card-top">
+                                <div class="skill-icon-wrap" style="--ic:#8b949e">
+                                    <i class="bi bi-filetype-php"></i>
+                                </div>
+                                <div class="skill-meta">
+                                    <h4>PHP</h4>
+                                    <span class="skill-pct">50%</span>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <div class="card habilidad-card text-center">
-                                            <i class="bi bi-git text-danger"></i>
-                                            <h5>Git & GitHub</h5>
-                                            <p>Control de versiones y colaboración.</p>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-danger" style="width: 85%">85%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <p>Lenguaje de servidor robusto.</p>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--pct:50%;--ic:#8b949e"></div>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselBackend"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselBackend"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </button>
+
+                        <div class="skill-card">
+                            <div class="skill-card-top">
+                                <div class="skill-icon-wrap" style="--ic:#56d364">
+                                    <i class="bi bi-database"></i>
+                                </div>
+                                <div class="skill-meta">
+                                    <h4>MySQL</h4>
+                                    <span class="skill-pct">55%</span>
+                                </div>
+                            </div>
+                            <p>Gestión de bases de datos relacionales.</p>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--pct:55%;--ic:#56d364"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-card-top">
+                                <div class="skill-icon-wrap" style="--ic:#ff7b72">
+                                    <i class="bi bi-git"></i>
+                                </div>
+                                <div class="skill-meta">
+                                    <h4>Git & GitHub</h4>
+                                    <span class="skill-pct">85%</span>
+                                </div>
+                            </div>
+                            <p>Control de versiones y colaboración.</p>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--pct:85%;--ic:#ff7b72"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-card-top">
+                                <div class="skill-icon-wrap" style="--ic:#56d364">
+                                    <i class="fab fa-laravel"></i>
+                                </div>
+                                <div class="skill-meta">
+                                    <h4>Laravel</h4>
+                                    <span class="skill-pct">20%</span>
+                                </div>
+                            </div>
+                            <p>Framework PHP para desarrollo web.</p>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="--pct:20%;--ic:#56d364"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -334,7 +404,8 @@
                     <span class="tech-tag">CSS3</span>
                     <span class="tech-tag">Bootstrap</span>
                 </div>
-                <p class="project-description">Landing page optimizada para gimnasio con diseño responsivo y animaciones
+                <p class="project-description">Landing page optimizada para gimnasio con diseño responsivo y
+                    animaciones
                     ligeras. Enfoque en conversión de clientes con CTAs estratégicos.</p>
                 <div class="project-links">
                     <a href="https://yairv1.github.io/mi-gym/" target="_blank" class="btn btn-secondary">Demo</a>
@@ -349,7 +420,8 @@
                     <span class="tech-tag">CSS3</span>
                     <span class="tech-tag">Performance</span>
                 </div>
-                <p class="project-description">Página de marketing digital con animaciones fluidas y alto rendimiento.
+                <p class="project-description">Página de marketing digital con animaciones fluidas y alto
+                    rendimiento.
                     Optimizada para tiempos de carga rápidos y experiencia de usuario superior.</p>
                 <div class="project-links">
                     <a href="https://yairv1.github.io/boostrap/" target="_blank" class="btn btn-secondary">Demo</a>
@@ -379,7 +451,8 @@
                     <span class="tech-tag">Finance</span>
                     <span class="tech-tag">Interactive</span>
                 </div>
-                <p class="project-description">Calculadora interactiva de rendimientos de inversión con interfaz moderna
+                <p class="project-description">Calculadora interactiva de rendimientos de inversión con interfaz
+                    moderna
                     y cálculos en tiempo real. Incluye visualizaciones dinámicas.</p>
                 <div class="project-links">
                     <a href="https://yairv1.github.io/similador_invercion_js/" target="_blank"
@@ -396,7 +469,8 @@
                     <span class="tech-tag">LocalStorage</span>
                     <span class="tech-tag">CRUD</span>
                 </div>
-                <p class="project-description">Gestor de tareas con persistencia de datos usando LocalStorage. Permite
+                <p class="project-description">Gestor de tareas con persistencia de datos usando LocalStorage.
+                    Permite
                     crear, editar y eliminar tareas con interfaz intuitiva.</p>
                 <div class="project-links">
                     <a href="https://yairv1.github.io/To_do_list_js/" target="_blank" class="btn btn-secondary">Demo</a>
@@ -436,7 +510,8 @@
                 <p>Desarrollo de aplicaciones web completas con JavaScript, PHP y MySQL. Enfoque en código limpio,
                     responsive design y experiencia de usuario.</p>
                 <div class="learning">
-                    <strong>Aplicando:</strong> Todas las habilidades de mis experiencias anteriores en cada línea de
+                    <strong>Aplicando:</strong> Todas las habilidades de mis experiencias anteriores en cada línea
+                    de
                     código.
                 </div>
             </div>
@@ -466,7 +541,7 @@
     </section>
 
     <!-- Mis hobbies -->
-     <section id="hobbis" class="hobbis">
+    <section id="hobbis" class="hobbis">
         <h2>Hobbies</h2>
         <div class="hobbies-container">
 
@@ -496,7 +571,7 @@
 
         </div>
     </section>
-    
+
     <!-- SECCIÓN CONTACTO-->
     <section id="contacto">
         <div class="cta-section">
@@ -512,14 +587,13 @@
                 <a href="https://www.linkedin.com/in/yair-vergara-163043309/" target="_blank" class="btn btn-secondary">
                     <i class="bi bi-linkedin"></i> LinkedIn
                 </a>
-                <a href="hojaV/Hoja de vida aprendiz-2.pdf" target="_blank"
-                    class="btn btn-secondary">
+                <a href="hojaV/Hoja de vida aprendiz-2.pdf" target="_blank" class="btn btn-secondary">
                     <i class="bi bi-file-earmark-fill"></i> Hoja de Vida
                 </a>
             </div>
         </div>
     </section>
-    
+
     <!-- FOOTER-->
     <footer>
         <div class="social-links">
@@ -541,6 +615,7 @@
 
     <!-- Tu JavaScript personalizado -->
     <script src="js/main.js"></script>
+    <script src="js/carnet.js"></script>
 </body>
 
 </html>

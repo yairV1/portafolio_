@@ -87,7 +87,7 @@
     </nav>
 
     <!-- SECCIÓN HERO-->
-    <section class="hero" id="inicio">
+    <section class="hero" id="inicio" data-nav-label="Inicio">
         <div class="hero-3d-bg" aria-hidden="true"></div>
         <div class="hero-content">
             <div class="hero-text">
@@ -124,7 +124,7 @@
     </section>
 
     <!-- SECCIÓN SOBRE MÍ + CARNET 3D-->
-    <section id="sobre-mi">
+    <section id="sobre-mi" data-nav-label="Sobre mí">
         <div class="section-header" data-reveal>
             <h2>Sobre mí</h2>
             <p>De la atención al cliente al código</p>
@@ -258,7 +258,7 @@
     </section>
 
     <!-- SECCIÓN HABILIDADES -->
-    <section id="habilidades">
+    <section id="habilidades" data-nav-label="Habilidades">
         <div class="container">
             <h2 class="skills-title">Mis Habilidades</h2>
 
@@ -433,7 +433,7 @@
     </section>
 
     <!-- SECCIÓN PROYECTOS-->
-    <section id="proyectos">
+    <section id="proyectos" data-nav-label="Proyectos">
         <div class="section-header" data-reveal>
             <h2>Proyectos Destacados</h2>
             <p>Soluciones web que resuelven problemas reales</p>
@@ -539,8 +539,34 @@
         </div>
     </section>
 
+    <!-- SECCIÓN REPOSITORIOS (catálogo automático desde GitHub) -->
+    <section id="repositorios" data-nav-label="Repositorios">
+        <div class="section-header" data-reveal>
+            <h2>Todos mis proyectos</h2>
+            <p>Se actualiza solo — traído en vivo desde mi GitHub</p>
+        </div>
+
+        <div class="repo-controls" data-reveal>
+            <div class="repo-search-wrap">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="text" id="repoFilter" placeholder="Filtrar por nombre, tecnología o descripción…"
+                    aria-label="Filtrar repositorios" autocomplete="off">
+            </div>
+        </div>
+
+        <div id="repoGrid" class="repo-grid" aria-live="polite">
+            <p class="repo-status">Cargando repositorios desde GitHub…</p>
+        </div>
+
+        <p class="repo-footer">
+            <a href="https://github.com/yairV1?tab=repositories" target="_blank" rel="noopener noreferrer">
+                Ver todo en GitHub <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+            </a>
+        </p>
+    </section>
+
     <!-- SECCIÓN EXPERIENCIA-->
-    <section id="experiencia">
+    <section id="experiencia" data-nav-label="Experiencia">
         <div class="section-header" data-reveal>
             <h2>Experiencia</h2>
             <p>Mi trayectoria única que forma mi perspectiva como desarrollador</p>
@@ -583,7 +609,7 @@
     </section>
 
     <!-- Mis hobbies -->
-    <section id="hobbis" class="hobbis">
+    <section id="hobbis" class="hobbis" data-nav-label="Hobbies">
         <h2>Hobbies</h2>
         <div class="hobbies-container">
 
@@ -615,7 +641,7 @@
     </section>
 
     <!-- SECCIÓN CONTACTO-->
-    <section id="contacto">
+    <section id="contacto" data-nav-label="Contacto">
         <div class="cta-section">
             <h2>¿Tienes un proyecto en mente?</h2>
             <p>Hablemos de cómo puedo ayudarte a llevarlo a cabo.<br>Respondo en menos de 24 horas.</p>
@@ -651,6 +677,30 @@
         </div>
         <p>&copy; 2025 Yair Vergara. Construido con pasión y código limpio</p>
     </footer>
+
+    <!-- BUSCADOR TIPO COMANDO -->
+    <button id="paletteTrigger" class="palette-trigger" aria-haspopup="dialog" aria-controls="commandPalette">
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <span>¿Qué buscas? <kbd>Ctrl</kbd><kbd>K</kbd></span>
+    </button>
+
+    <div id="commandPalette" class="command-palette" role="dialog" aria-modal="true"
+        aria-label="Buscador del portafolio" hidden>
+        <div class="command-palette-backdrop"></div>
+        <div class="command-palette-box">
+            <div class="command-palette-input-wrap">
+                <i class="bi bi-search" aria-hidden="true"></i>
+                <input type="text" id="paletteInput" autocomplete="off"
+                    placeholder="Busca un proyecto, tecnología o sección…"
+                    aria-label="Buscar en el portafolio">
+                <kbd>Esc</kbd>
+            </div>
+            <ul id="paletteResults" class="command-palette-results" role="listbox"></ul>
+            <p class="command-palette-empty" id="paletteEmpty" hidden>
+                No encontré nada con eso. <a href="#contacto">¿Hablamos directo?</a>
+            </p>
+        </div>
+    </div>
 
     <!-- JavaScript (módulos ES6) -->
     <script type="module" src="js/main.js"></script>

@@ -12,6 +12,9 @@ import { initCarnet } from './modules/carnet.js';
 import { initHero3D } from './modules/hero3d.js';
 import { initMagneticButtons } from './modules/magnetic.js';
 import { initTilt } from './modules/tilt.js';
+import { initScrollNav } from './modules/scrollnav.js';
+import { initGithubRepos } from './modules/github.js';
+import { initPalette } from './modules/palette.js';
 
 const modules = [
   ['navbar', initNavbar],
@@ -22,6 +25,9 @@ const modules = [
   ['hero3d', initHero3D],
   ['magnetic', initMagneticButtons],
   ['tilt', initTilt],
+  ['scrollnav', initScrollNav],
+  ['github', initGithubRepos],
+  ['palette', initPalette],
 ];
 
 modules.forEach(([name, init]) => {

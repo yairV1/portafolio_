@@ -15,6 +15,11 @@
   --accent-hover: #79c0ff;
   --border: rgba(255, 255, 255, 0.08);
   --shadow: rgba(0, 0, 0, 0.3);
+
+  /* Curvas de easing reutilizables */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -23,6 +28,41 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 1rem;
+  z-index: 2000;
+  background: var(--accent);
+  color: var(--bg-primary);
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 /* ============================================
@@ -126,6 +166,30 @@ nav {
   justify-content: center;
   padding: 8rem 2rem 4rem;
   position: relative;
+  overflow: hidden;
+}
+
+.hero-3d-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-3d-bg canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fallback cuando WebGL no está disponible o el usuario prefiere
+   movimiento reducido: un degradado estático con el mismo acento. */
+.hero-3d-bg.hero-static {
+  background:
+    radial-gradient(circle at 25% 30%, rgba(88, 166, 255, 0.22), transparent 45%),
+    radial-gradient(circle at 75% 70%, rgba(88, 166, 255, 0.16), transparent 50%),
+    radial-gradient(rgba(88, 166, 255, 0.35) 1px, transparent 1px);
+  background-size: auto, auto, 34px 34px;
 }
 
 .hero-content {
@@ -134,18 +198,58 @@ nav {
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-.hero-text h1 {
+.hero-text h1,
+.hero-title {
   font-size: 4rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
   line-height: 1.1;
   color: var(--text-primary);
-  background: linear-gradient(135deg, var(--text-primary), var(--accent));
+  background: linear-gradient(135deg, var(--text-primary), var(--accent), var(--text-primary));
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: shimmer 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* ============================================
+   SISTEMA DE REVEAL AL HACER SCROLL
+   ============================================ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respeta la preferencia de movimiento reducido del usuario en
+   todo el sitio: desactiva animaciones y transiciones no esenciales. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .hero-text .subtitle {

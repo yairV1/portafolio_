@@ -5,10 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Yair Vergara - Full-Stack Developer especializado en JavaScript, PHP y MySQL">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a0e14">
     <title>Yair Vergara - Full-Stack Developer</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yairv1.github.io/portafolio_/">
+
+    <!-- Open Graph / redes sociales -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yair Vergara - Full-Stack Developer">
+    <meta property="og:description" content="Desarrollador full-stack especializado en JavaScript, PHP y MySQL. Explora mis proyectos y habilidades.">
+    <meta property="og:url" content="https://yairv1.github.io/portafolio_/">
+    <meta property="og:image" content="https://yairv1.github.io/portafolio_/img/yotas.png">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Yair Vergara - Full-Stack Developer">
+    <meta name="twitter:description" content="Desarrollador full-stack especializado en JavaScript, PHP y MySQL.">
+    <meta name="twitter:image" content="https://yairv1.github.io/portafolio_/img/yotas.png">
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Google Fonts -->
@@ -20,18 +41,36 @@
     <!-- Tu CSS personalizado -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/carnet.css">
+
+    <!-- Datos estructurados (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Yair Vergara",
+      "jobTitle": "Full-Stack Developer",
+      "url": "https://yairv1.github.io/portafolio_/",
+      "email": "mailto:yandrey2007@gmail.com",
+      "sameAs": [
+        "https://github.com/yairV1",
+        "https://www.linkedin.com/in/yair-vergara-163043309/"
+      ],
+      "knowsAbout": ["JavaScript", "PHP", "MySQL", "HTML", "CSS"]
+    }
+    </script>
 </head>
-<!-- ...existing code... -->
-<div id="cursor"></div>
-<div id="cursor-follower"></div>
 
 <body>
+    <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+    <div id="cursor" aria-hidden="true"></div>
+    <div id="cursor-follower" aria-hidden="true"></div>
+
     <!-- NAVEGACIÓN-->
-    <nav>
+    <nav id="navbar" aria-label="Navegación principal">
         <div class="nav-container">
             <a href="#inicio" class="logo">YV</a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#inicio" class="active" aria-current="page">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
@@ -39,7 +78,7 @@
                 <li><a href="#hobbis">Hobbies</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <button class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="navLinks">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -49,9 +88,10 @@
 
     <!-- SECCIÓN HERO-->
     <section class="hero" id="inicio">
+        <div class="hero-3d-bg" aria-hidden="true"></div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Yair Vergara</h1>
+                <h1 class="hero-title">Yair Vergara</h1>
                 <p class="subtitle">Full-Stack Developer</p>
                 <p>Construyo experiencias web que combinan diseño intuitivo con código limpio y escalable.
                     Especializado
@@ -85,7 +125,7 @@
 
     <!-- SECCIÓN SOBRE MÍ + CARNET 3D-->
     <section id="sobre-mi">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
             <h2>Sobre mí</h2>
             <p>De la atención al cliente al código</p>
         </div>
@@ -129,7 +169,7 @@
                         <!-- Cuerpo con foto e info -->
                         <div class="cf-body">
                             <div class="cf-photo">
-                                <img src="img/yotas.png" alt="Yair Vergara">
+                                <img src="img/yotas.png" alt="Foto de perfil de Yair Vergara" width="189" height="248" loading="eager">
                             </div>
                             <div class="cf-info">
                                 <div class="cf-name">Yair Vergara</div>
@@ -208,6 +248,8 @@
                     <!-- ══════════════════════════════ FIN REVERSO ══════════════════════════════ -->
 
                 </div><!-- fin #card-wrap -->
+
+                <p class="card-hint">🖱 Arrastra · Click = voltear</p>
 
             </div><!-- fin #scene -->
 
@@ -301,7 +343,7 @@
                         <div class="skill-card">
                             <div class="skill-card-top">
                                 <div class="skill-icon-wrap" style="--ic:#ff7b72">
-                                    <img src="img/n8n_full_white_logo.png" width="40" alt="">
+                                    <img src="img/n8n_full_white_logo.png" width="40" height="11" alt="Logo de n8n" loading="lazy">
                                 </div>
                                 <div class="skill-meta">
                                     <h4>N8n</h4>
@@ -392,12 +434,12 @@
 
     <!-- SECCIÓN PROYECTOS-->
     <section id="proyectos">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
             <h2>Proyectos Destacados</h2>
             <p>Soluciones web que resuelven problemas reales</p>
         </div>
         <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" data-reveal>
                 <h3>Gym Landing Page</h3>
                 <div class="project-tech">
                     <span class="tech-tag">HTML5</span>
@@ -408,12 +450,12 @@
                     animaciones
                     ligeras. Enfoque en conversión de clientes con CTAs estratégicos.</p>
                 <div class="project-links">
-                    <a href="https://yairv1.github.io/mi-gym/" target="_blank" class="btn btn-secondary">Demo</a>
-                    <a href="https://github.com/yairV1/mi-gym" target="_blank" class="btn btn-primary">Código</a>
+                    <a href="https://yairv1.github.io/mi-gym/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/mi-gym" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Código</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal>
                 <h3>Panto Marketing</h3>
                 <div class="project-tech">
                     <span class="tech-tag">JavaScript</span>
@@ -424,12 +466,12 @@
                     rendimiento.
                     Optimizada para tiempos de carga rápidos y experiencia de usuario superior.</p>
                 <div class="project-links">
-                    <a href="https://yairv1.github.io/boostrap/" target="_blank" class="btn btn-secondary">Demo</a>
-                    <a href="https://github.com/yairV1/boostrap" target="_blank" class="btn btn-primary">Código</a>
+                    <a href="https://yairv1.github.io/boostrap/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/boostrap" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Código</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal>
                 <h3>Calculadora de Figuras</h3>
                 <div class="project-tech">
                     <span class="tech-tag">JavaScript</span>
@@ -439,12 +481,12 @@
                 <p class="project-description">Aplicación web educativa para calcular áreas y perímetros de figuras
                     geométricas con resultados en tiempo real y diseño intuitivo.</p>
                 <div class="project-links">
-                    <a href="https://yairv1.github.io/figuras_JS/" target="_blank" class="btn btn-secondary">Demo</a>
-                    <a href="https://github.com/yairV1/figuras_JS" target="_blank" class="btn btn-primary">Código</a>
+                    <a href="https://yairv1.github.io/figuras_JS/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/figuras_JS" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Código</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal>
                 <h3>Simulador de Inversión</h3>
                 <div class="project-tech">
                     <span class="tech-tag">JavaScript</span>
@@ -455,14 +497,14 @@
                     moderna
                     y cálculos en tiempo real. Incluye visualizaciones dinámicas.</p>
                 <div class="project-links">
-                    <a href="https://yairv1.github.io/similador_invercion_js/" target="_blank"
+                    <a href="https://yairv1.github.io/similador_invercion_js/" target="_blank" rel="noopener noreferrer"
                         class="btn btn-secondary">Demo</a>
-                    <a href="https://github.com/yairV1/similador_invercion_js" target="_blank"
+                    <a href="https://github.com/yairV1/similador_invercion_js" target="_blank" rel="noopener noreferrer"
                         class="btn btn-primary">Código</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal>
                 <h3>To-Do List</h3>
                 <div class="project-tech">
                     <span class="tech-tag">JavaScript</span>
@@ -473,12 +515,12 @@
                     Permite
                     crear, editar y eliminar tareas con interfaz intuitiva.</p>
                 <div class="project-links">
-                    <a href="https://yairv1.github.io/To_do_list_js/" target="_blank" class="btn btn-secondary">Demo</a>
-                    <a href="https://github.com/yairV1/To_do_list_js" target="_blank" class="btn btn-primary">Código</a>
+                    <a href="https://yairv1.github.io/To_do_list_js/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Demo</a>
+                    <a href="https://github.com/yairV1/To_do_list_js" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Código</a>
                 </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal>
                 <h3>Base de Vehículos</h3>
                 <div class="project-tech">
                     <span class="tech-tag">JavaScript</span>
@@ -488,9 +530,9 @@
                 <p class="project-description">Sistema de gestión de vehículos con generación dinámica de tarjetas,
                     almacenamiento local y funcionalidades CRUD completas.</p>
                 <div class="project-links">
-                    <a href="https://yairv1.github.io/base-vehiculos-dinamicos/" target="_blank"
+                    <a href="https://yairv1.github.io/base-vehiculos-dinamicos/" target="_blank" rel="noopener noreferrer"
                         class="btn btn-secondary">Demo</a>
-                    <a href="https://github.com/yairV1/base-vehiculos-dinamicos" target="_blank"
+                    <a href="https://github.com/yairV1/base-vehiculos-dinamicos" target="_blank" rel="noopener noreferrer"
                         class="btn btn-primary">Código</a>
                 </div>
             </div>
@@ -499,12 +541,12 @@
 
     <!-- SECCIÓN EXPERIENCIA-->
     <section id="experiencia">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
             <h2>Experiencia</h2>
             <p>Mi trayectoria única que forma mi perspectiva como desarrollador</p>
         </div>
         <div class="experience-timeline">
-            <div class="experience-item">
+            <div class="experience-item" data-reveal>
                 <h3>Desarrollador Web</h3>
                 <p class="period">Actual · Proyectos independientes</p>
                 <p>Desarrollo de aplicaciones web completas con JavaScript, PHP y MySQL. Enfoque en código limpio,
@@ -516,7 +558,7 @@
                 </div>
             </div>
 
-            <div class="experience-item">
+            <div class="experience-item" data-reveal>
                 <h3>Atención al Cliente</h3>
                 <p class="period">2 años · Sector servicios</p>
                 <p>Gestión de múltiples tareas bajo presión, desarrollo de habilidades de comunicación y comprensión
@@ -527,7 +569,7 @@
                 </div>
             </div>
 
-            <div class="experience-item">
+            <div class="experience-item" data-reveal>
                 <h3>Soldador Industrial</h3>
                 <p class="period">1 año · Manufactura</p>
                 <p>Precisión milimétrica, seguimiento estricto de estándares de calidad y protocolos de seguridad en
@@ -545,24 +587,24 @@
         <h2>Hobbies</h2>
         <div class="hobbies-container">
 
-            <div class="hobby-card">
-                <img src="img/libti.jpg" alt="Leer">
+            <div class="hobby-card" data-reveal>
+                <img src="img/libti.jpg" alt="Persona leyendo un libro" width="1200" height="800" loading="lazy">
                 <div class="hobby-overlay">
                     <h3>Leer</h3>
                     <p>Disfruto de la lectura porque me permite aprender, inspirarme y relajarme.</p>
                 </div>
             </div>
 
-            <div class="hobby-card">
-                <img src="img/musi.jpg" alt="Música">
+            <div class="hobby-card" data-reveal>
+                <img src="img/musi.jpg" alt="Audífonos y música" width="419" height="419" loading="lazy">
                 <div class="hobby-overlay">
                     <h3>Música</h3>
                     <p>Escuchar música me ayuda a concentrarme y disfrutar de mis momentos libres.</p>
                 </div>
             </div>
 
-            <div class="hobby-card">
-                <img src="img/paisaje.jpg" alt="Naturaleza">
+            <div class="hobby-card" data-reveal>
+                <img src="img/paisaje.jpg" alt="Paisaje natural con montañas" width="464" height="261" loading="lazy">
                 <div class="hobby-overlay">
                     <h3>Naturaleza</h3>
                     <p>Me encanta explorar y conectarme con la tranquilidad de los paisajes.</p>
@@ -581,13 +623,13 @@
                 <a href="mailto:yandrey2007@gmail.com" class="btn btn-primary">
                     <i class="bi bi-envelope-fill"></i> Email
                 </a>
-                <a href="https://wa.me/573212569376" target="_blank" class="btn btn-secondary">
+                <a href="https://wa.me/573212569376" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                     <i class="bi bi-whatsapp"></i> WhatsApp
                 </a>
-                <a href="https://www.linkedin.com/in/yair-vergara-163043309/" target="_blank" class="btn btn-secondary">
+                <a href="https://www.linkedin.com/in/yair-vergara-163043309/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                     <i class="bi bi-linkedin"></i> LinkedIn
                 </a>
-                <a href="hojaV/Hoja de vida aprendiz-2.pdf" target="_blank" class="btn btn-secondary">
+                <a href="hojaV/hoja-de-vida-yair-vergara.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="Descargar hoja de vida en PDF">
                     <i class="bi bi-file-earmark-fill"></i> Hoja de Vida
                 </a>
             </div>
@@ -597,25 +639,21 @@
     <!-- FOOTER-->
     <footer>
         <div class="social-links">
-            <a href="https://github.com/yairV1" target="_blank" title="GitHub">
+            <a href="https://github.com/yairV1" target="_blank" rel="noopener noreferrer" title="GitHub">
                 <i class="bi bi-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/yair-vergara-163043309/" target="_blank" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/yair-vergara-163043309/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                 <i class="bi bi-linkedin"></i>
             </a>
-            <a href="https://wa.me/573212569376" target="_blank" title="WhatsApp">
+            <a href="https://wa.me/573212569376" target="_blank" rel="noopener noreferrer" title="WhatsApp">
                 <i class="bi bi-whatsapp"></i>
             </a>
         </div>
         <p>&copy; 2025 Yair Vergara. Construido con pasión y código limpio</p>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Tu JavaScript personalizado -->
-    <script src="js/main.js"></script>
-    <script src="js/carnet.js"></script>
+    <!-- JavaScript (módulos ES6) -->
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

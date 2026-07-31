@@ -1,37 +1,31 @@
-🧑‍💻 Sobre mí
+# 🧑‍💻 Yair Vergara — Portafolio
 
-¡Hola! Soy Yair, un apasionado desarrollador enfocado en crear soluciones prácticas y aprender constantemente nuevas tecnologías. Me encanta trabajar en proyectos que me permitan mejorar mis habilidades y compartir mis avances con la comunidad. 
-GitHub
+Portafolio personal de **Yair Vergara**, desarrollador Full-Stack especializado en JavaScript, PHP y MySQL.
 
-🚀 ¿Qué encontrarás en este portafolio?
+🔗 **Demo en vivo:** https://yairv1.github.io/portafolio_/
 
-En este repositorio encontrarás una colección de proyectos que he construido, desde mini aplicaciones hasta proyectos más completos, donde podrás ver:
+## 🚀 Sobre mí
 
-🔹 Mis habilidades técnicas y herramientas que utilizo (por ejemplo: JavaScript, HTML, CSS, React, Python, etc.).
+¡Hola! Soy Yair, un desarrollador apasionado por crear soluciones prácticas y aprender constantemente nuevas tecnologías. Mi camino hacia el desarrollo pasó antes por la atención al cliente y la soldadura industrial, una combinación que me dio precisión, atención al detalle y una fuerte orientación a resolver problemas reales.
 
-🔹 Proyectos con documentación, capturas o enlaces a demostraciones.
+## 🛠️ Stack técnico
 
-🔹 Mi evolución como desarrollador a través del código. 
-GitHub
+- **Frontend:** HTML5, CSS3, JavaScript, Bootstrap 5, Figma
+- **Backend:** PHP, MySQL, Laravel
+- **Herramientas:** Git & GitHub, n8n
 
-💡 ¿Por qué este portafolio?
+## 📂 Contenido
 
-Este portafolio representa mi crecimiento profesional y mi estilo de trabajo. Aquí muestro mi forma de pensar, desarrollar y resolver problemas reales a través de proyectos funcionales. 
-GitHub Profile README Builder
+- `index.html` — Página principal del portafolio (hero, sobre mí, habilidades, proyectos, experiencia, hobbies y contacto).
+- `carnet.html` — Carné profesional 3D interactivo independiente.
+- `css/` — Hojas de estilo del sitio y del carné.
+- `js/` — Lógica de interfaz (navegación, animaciones, tabs, carné 3D).
+- `img/` — Recursos gráficos usados en el sitio.
+- `hojaV/` — Hoja de vida en PDF descargable.
 
-📫 ¿Cómo contactarme?
+## 📫 Contacto
 
-Si quieres hablar sobre colaboraciones, oportunidades o simplemente quieres saludar, puedes encontrarme en:
-
-🌐 LinkedIn: tu-link-de-linkedin-aquí
-
-📧 Email: tu-email-aquí
-
-🐦 Twitter: tu-user-de-twitter-aquí
-
-✨ Tips para personalizarla
-
-✔️ Cambia los lenguajes y frameworks por los que realmente usas.
-✔ Añade enlaces a tus proyectos más destacados con screenshots o demos.
-✔ Si tienes CV, portafolio web o blog, pon los links aquí también. 
-https://yairv1.github.io/portafolio_/
+- 🌐 LinkedIn: [Yair Vergara](https://www.linkedin.com/in/yair-vergara-163043309/)
+- 💻 GitHub: [@yairV1](https://github.com/yairV1)
+- 📧 Email: yandrey2007@gmail.com
+- 💬 WhatsApp: [+57 321 256 9376](https://wa.me/573212569376)

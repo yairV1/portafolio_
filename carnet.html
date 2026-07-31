@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Carné profesional 3D interactivo de Yair Vergara, Full-Stack Developer.">
+    <meta name="robots" content="noindex, follow">
     <title>Carné 3D - Yair Vergara</title>
-    <link rel="stylesheet" href="/css/carnet.css" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+    <link rel="stylesheet" href="css/carnet.css" />
 
 </head>
 
@@ -36,7 +39,7 @@
                 <!-- Cuerpo con foto e info -->
                 <div class="cf-body">
                     <div class="cf-photo">
-                        <img src="img/yotas.png" alt="Yair Vergara">
+                        <img src="img/yotas.png" alt="Foto de perfil de Yair Vergara" width="189" height="248">
                     </div>
                     <div class="cf-info">
                         <div class="cf-name">Yair Vergara</div>
@@ -116,9 +119,14 @@
 
         </div><!-- fin #card-wrap -->
 
+        <p class="card-hint">🖱 Arrastra · Click = voltear</p>
+
     </div><!-- fin #scene -->
 
-    <script src="js/carnet.js"></script>
+    <script type="module">
+        import { initCarnet } from './js/modules/carnet.js';
+        initCarnet();
+    </script>
 </body>
 
 </html>

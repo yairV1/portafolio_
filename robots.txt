@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yairv1.github.io/portafolio_/sitemap.xml

@@ -1,31 +1,51 @@
-# 🧑‍💻 Yair Vergara — Portafolio
+# Credencial de acceso — Portafolio
 
-Portafolio personal de **Yair Vergara**, desarrollador Full-Stack especializado en JavaScript, PHP y MySQL.
+Experiencia interactiva 3D. React + Three.js + física real.
 
-🔗 **Demo en vivo:** https://yairv1.github.io/portafolio_/
+## Arrancar
 
-## 🚀 Sobre mí
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # genera /dist listo para subir
+```
 
-¡Hola! Soy Yair, un desarrollador apasionado por crear soluciones prácticas y aprender constantemente nuevas tecnologías. Mi camino hacia el desarrollo pasó antes por la atención al cliente y la soldadura industrial, una combinación que me dio precisión, atención al detalle y una fuerte orientación a resolver problemas reales.
+## Editar el contenido
 
-## 🛠️ Stack técnico
+**Todo el texto vive en un solo archivo: `src/data/content.js`.**
+Los placeholders están marcados con corchetes: `[Apellido]`, `[tucorreo@ejemplo.com]`, etc.
 
-- **Frontend:** HTML5, CSS3, JavaScript, Bootstrap 5, Figma
-- **Backend:** PHP, MySQL, Laravel
-- **Herramientas:** Git & GitHub, n8n
+| Qué cambiar | Dónde |
+|---|---|
+| Nombre, rol, descripción, stack del hero | `identity` |
+| Textos y estadísticas de "Sobre mí" | `perfil` |
+| Habilidades y niveles | `capacidades` |
+| Experiencia laboral | `trayectoria` |
+| Proyectos (home y archivo) | `expedientes` |
+| Hobbies | `fueraDeHorario` |
+| Email, teléfono, redes | `contacto` |
 
-## 📂 Contenido
+- **Tu foto:** reemplaza `public/foto.png` (vertical, mínimo 620×880 px).
+- **Tu CV:** pon el PDF en `public/` y cambia `identity.cv` a `'/tu-cv.pdf'`.
+- **Colores:** los tokens están al inicio de `src/styles/app.css`.
 
-- `index.html` — Página principal del portafolio (hero, sobre mí, habilidades, proyectos, experiencia, hobbies y contacto).
-- `carnet.html` — Carné profesional 3D interactivo independiente.
-- `css/` — Hojas de estilo del sitio y del carné.
-- `js/` — Lógica de interfaz (navegación, animaciones, tabs, carné 3D).
-- `img/` — Recursos gráficos usados en el sitio.
-- `hojaV/` — Hoja de vida en PDF descargable.
+## Estructura
 
-## 📫 Contacto
+```
+src/
+  data/content.js      ← único archivo que necesitas editar
+  three/Lanyard.jsx    ← carné con física (Rapier + meshline)
+  three/Guide.jsx      ← guía 3D estilizado
+  sections/Zones.jsx   ← las 7 zonas
+  pages/Archive.jsx    ← página de expedientes con buscador
+  components/          ← checkpoints, cursor, atmósfera, reveal
+  styles/app.css       ← sistema de diseño completo
+```
 
-- 🌐 LinkedIn: [Yair Vergara](https://www.linkedin.com/in/yair-vergara-163043309/)
-- 💻 GitHub: [@yairV1](https://github.com/yairV1)
-- 📧 Email: yandrey2007@gmail.com
-- 💬 WhatsApp: [+57 321 256 9376](https://wa.me/573212569376)
+## Notas
+
+- El formulario de contacto abre el cliente de correo del visitante. Para recibir mensajes
+  en un servidor, conéctalo a Formspree o EmailJS.
+- La página `/expedientes` necesita redirección SPA en el hosting. Ya están incluidos
+  `vercel.json` y `_redirects` (Netlify) en `public/`.
+- La física del carné se desactiva si el sistema pide `prefers-reduced-motion`.

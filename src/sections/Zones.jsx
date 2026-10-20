@@ -118,6 +118,9 @@ export function Z01() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1.2 }}
         >
+          <p className="sr-only">
+            Credencial interactiva en 3D con mi foto, nombre y rol. Se puede arrastrar con el mouse o el dedo.
+          </p>
           <LazyLanyard />
         </motion.div>
       </div>
@@ -330,7 +333,7 @@ export function Z05() {
         <Reveal from="mask">
           <Tag i={4} />
           <h2 className="zt">
-            Trabajo <em>archivado</em>
+            Trabajo <em>destacado</em>
           </h2>
           <p className="lede">Cuatro expedientes destacados, con su estado real. El archivo completo, con mis proyectos de práctica, está una puerta más allá.</p>
         </Reveal>

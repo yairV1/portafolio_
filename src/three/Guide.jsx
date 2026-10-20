@@ -197,7 +197,7 @@ function Core({ scrollTilt }) {
       </mesh>
 
       <mesh ref={halo}>
-        <ringGeometry args={[2.25, 2.55, 96]} />
+        <ringGeometry args={[2.1, 2.34, 96]} />
         <meshBasicMaterial color="#8B5CF6" transparent opacity={0.12} side={THREE.DoubleSide} />
       </mesh>
 
@@ -265,8 +265,8 @@ export default function Guide() {
   return (
     <div className="guide-stage" ref={stageRef}>
       <Canvas
-        camera={{ position: [0, 0, 6.4], fov: 42 }}
-        dpr={[1, 1.75]}
+        camera={{ position: [0, 0, 7.1], fov: 42 }}
+        dpr={[1, typeof window !== 'undefined' && window.innerWidth < 780 ? 1.3 : 1.75]}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
         <ambientLight intensity={0.5} />

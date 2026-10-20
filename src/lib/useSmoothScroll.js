@@ -20,7 +20,7 @@ export default function useSmoothScroll() {
 
     const onClick = (e) => {
       const a = e.target.closest?.('a[href^="#"]')
-      if (!a) return
+      if (!a || a.classList.contains('skip')) return
       const id = a.getAttribute('href')
       if (id.length < 2) return
       const el = document.querySelector(id)

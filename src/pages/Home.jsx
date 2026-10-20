@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <Checkpoints />
-      <main>
+      <main id="contenido" tabIndex={-1}>
         <Z01 />
         <Z02 />
         <Z03 />

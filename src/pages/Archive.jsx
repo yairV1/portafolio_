@@ -36,7 +36,7 @@ export default function Archive() {
   }, [])
 
   return (
-    <div className="archive">
+    <main className="archive" id="contenido" tabIndex={-1}>
       <Link to="/" className="back" data-cursor>
         ← Volver a recepción
       </Link>
@@ -156,6 +156,6 @@ export default function Archive() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </main>
   )
 }

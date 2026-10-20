@@ -48,7 +48,7 @@ function makeBandTexture() {
   g.strokeStyle = 'rgba(196,181,253,0.22)'
   g.lineWidth = 2
   g.strokeRect(1, 10, 1022, 108)
-  g.font = '700 54px "JetBrains Mono", monospace'
+  g.font = '700 54px "JetBrains Mono Variable", "JetBrains Mono", monospace'
   g.textBaseline = 'middle'
   g.textAlign = 'center'
   const word = 'DEVELOPER'
@@ -153,7 +153,7 @@ function drawCardFace(img) {
   g.stroke()
 
   g.fillStyle = '#C4B5FD'
-  g.font = '500 22px "JetBrains Mono", monospace'
+  g.font = '500 22px "JetBrains Mono Variable", "JetBrains Mono", monospace'
   g.textBaseline = 'middle'
   g.fillText('ACCESO · Z-01', 44, 50)
   g.textAlign = 'right'
@@ -205,7 +205,7 @@ function drawCardFace(img) {
 
     const initials = `${identity.nombre?.[0] || ''}${(identity.apellido || '')[0] || ''}`.toUpperCase()
     g.fillStyle = 'rgba(196,181,253,0.85)'
-    g.font = '700 130px "Clash Display", system-ui, sans-serif'
+    g.font = '700 130px "Clash Display", "Inter Variable", system-ui, sans-serif'
     g.textAlign = 'center'
     g.fillText(initials, px + pw / 2, py + ph * 0.5)
     g.textAlign = 'left'
@@ -220,14 +220,14 @@ function drawCardFace(img) {
 
   // nombre + rol
   g.fillStyle = '#F2F0FA'
-  g.font = '600 62px "Clash Display", system-ui, sans-serif'
+  g.font = '600 62px "Clash Display", "Inter Variable", system-ui, sans-serif'
   g.fillText(identity.nombre, 60, 640)
 
   g.fillStyle = '#8B5CF6'
   g.fillRect(60, 672, 74, 3)
 
   g.fillStyle = '#8A87A6'
-  g.font = '500 25px "Satoshi", system-ui, sans-serif'
+  g.font = '500 25px "Satoshi", "Inter Variable", system-ui, sans-serif'
   g.fillText(identity.rol, 60, 712)
 
   // QR real: apunta al propio portafolio, escaneable desde el móvil
@@ -235,10 +235,10 @@ function drawCardFace(img) {
   drawQR(g, 60, 748, 96, qrValue)
 
   g.fillStyle = '#5D5A77'
-  g.font = '400 17px "JetBrains Mono", monospace'
+  g.font = '400 17px "JetBrains Mono Variable", "JetBrains Mono", monospace'
   g.fillText(identity.handle, 178, 796)
   g.fillStyle = '#5D5A77'
-  g.font = '400 13px "JetBrains Mono", monospace'
+  g.font = '400 13px "JetBrains Mono Variable", "JetBrains Mono", monospace'
   g.fillText('ESCANEA PARA VER EN VIVO', 178, 818)
 
   const t = new THREE.CanvasTexture(c)
@@ -252,7 +252,15 @@ function useCardTexture(src) {
   useEffect(() => {
     let alive = true
     let created = null
-    const fontsReady = document.fonts?.ready ?? Promise.resolve()
+    // Cargar explícitamente las fuentes que usa el canvas (no basta con document.fonts.ready)
+    const fontsReady = document.fonts
+      ? Promise.allSettled([
+          document.fonts.load('600 62px "Clash Display"'),
+          document.fonts.load('500 25px "Satoshi"'),
+          document.fonts.load('500 22px "JetBrains Mono Variable"'),
+          document.fonts.load('600 62px "Inter Variable"'),
+        ])
+      : Promise.resolve()
     Promise.all([fetch(src), fontsReady])
       .then(([res]) => {
         if (!res.ok) throw new Error('foto no encontrada')
@@ -534,7 +542,7 @@ export default function Lanyard() {
     <div className="lanyard-stage">
       <Canvas
         camera={{ position: [0, 0, 13], fov: 25 }}
-        dpr={[1, 1.75]}
+        dpr={[1, typeof window !== 'undefined' && window.innerWidth < 780 ? 1.4 : 1.75]}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
         <ambientLight intensity={0.85} />

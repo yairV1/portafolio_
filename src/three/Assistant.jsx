@@ -101,7 +101,7 @@ function useLogoTexture() {
     c.height = 128
     const g = c.getContext('2d')
     g.fillStyle = 'rgba(196,181,253,0.95)'
-    g.font = '700 46px "JetBrains Mono", monospace'
+    g.font = '700 46px "JetBrains Mono Variable", "JetBrains Mono", monospace'
     g.textAlign = 'center'
     g.textBaseline = 'middle'
     g.fillText('</>', 64, 68)

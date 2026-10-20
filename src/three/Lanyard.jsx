@@ -203,7 +203,7 @@ function drawCardFace(img) {
     g.fillStyle = placeholderGrad
     g.fillRect(px, py, pw, ph)
 
-    const initials = `${identity.nombre?.[0] || ''}${(identity.apellido || '').replace(/[[\]]/g, '')[0] || ''}`.toUpperCase()
+    const initials = `${identity.nombre?.[0] || ''}${(identity.apellido || '')[0] || ''}`.toUpperCase()
     g.fillStyle = 'rgba(196,181,253,0.85)'
     g.font = '700 130px "Clash Display", system-ui, sans-serif'
     g.textAlign = 'center'
@@ -252,8 +252,9 @@ function useCardTexture(src) {
   useEffect(() => {
     let alive = true
     let created = null
-    fetch(src)
-      .then((res) => {
+    const fontsReady = document.fonts?.ready ?? Promise.resolve()
+    Promise.all([fetch(src), fontsReady])
+      .then(([res]) => {
         if (!res.ok) throw new Error('foto no encontrada')
         return res.blob()
       })
@@ -263,7 +264,8 @@ function useCardTexture(src) {
         created = drawCardFace(bitmap)
         setTex(created)
       })
-      .catch(() => {
+      .catch(async () => {
+        await fontsReady
         if (!alive) return
         created = drawCardFace(null)
         setTex(created)

@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Reveal from '../components/Reveal'
 import { LazyLanyard, LazyGuide } from '../components/Lazy3D'
-import { identity, perfil, capacidades, trayectoria, expedientes, fueraDeHorario, contacto, zones } from '../data/content'
+import { identity, perfil, capacidades, trayectoria, expedientes, estados, fueraDeHorario, contacto, zones } from '../data/content'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -46,7 +46,7 @@ export function Z01() {
             Credencial de acceso
           </motion.p>
 
-          <h1 aria-label={identity.nombre}>
+          <h1 aria-label={`${identity.nombre} ${identity.apellido}`}>
             {letters.map((c, i) => (
               <motion.span
                 key={i}
@@ -60,6 +60,14 @@ export function Z01() {
               </motion.span>
             ))}
           </h1>
+          <motion.span
+            className="surname"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {identity.apellido}
+          </motion.span>
 
           <motion.div
             className="rol"
@@ -154,8 +162,8 @@ export function Z02() {
           </div>
 
           <Reveal from="up" delay={0.2}>
-            <a className="btn btn-ghost" href={identity.cv} data-cursor>
-              Descargar CV ↓
+            <a className="btn btn-ghost" href={identity.cv} download data-cursor>
+              Descargar hoja de vida ↓
             </a>
           </Reveal>
         </div>
@@ -177,7 +185,7 @@ export function Z03() {
             Lo que puedo <em>construir</em>
           </h2>
           <p className="lede">
-            Seis áreas, un mismo criterio: entender el problema antes de escribir la primera línea.
+            Seis áreas que uso en proyectos reales, con un mismo criterio: entender el problema antes de escribir la primera línea.
           </p>
         </Reveal>
 
@@ -185,10 +193,9 @@ export function Z03() {
           {capacidades.map((c, i) => (
             <Reveal key={c.titulo} from={dirs[i % dirs.length]} delay={i * 0.07}>
               <div className="cap" data-cursor>
+                <span className="cap-i">{String(i + 1).padStart(2, '0')}</span>
                 <h4>{c.titulo}</h4>
-                <div className="lvl">
-                  <b style={{ width: `${c.nivel}%` }} />
-                </div>
+                <p className="cap-n">{c.nota}</p>
                 <ul>
                   {c.items.map((it) => (
                     <li key={it}>{it}</li>
@@ -274,16 +281,14 @@ export function FileCard({ p, onOpen }) {
   return (
     <article className="file" data-cursor onClick={onOpen} role={onOpen ? 'button' : undefined} tabIndex={onOpen ? 0 : undefined}
       onKeyDown={(e) => { if (onOpen && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); onOpen() } }}>
-      <div className="file-shot">
-        <div
-          className="sheen"
-          style={{ background: `linear-gradient(135deg, ${p.tono[0]}, ${p.tono[1]})` }}
-        />
+      <div className="file-shot" style={{ '--a': p.tono[0], '--b': p.tono[1] }} aria-hidden="true">
+        <div className="sheen" />
+        <div className="blueprint" />
+        <span className="ring" />
+        <span className="mono-mark">{p.sigla}</span>
         <div className="file-meta">
-          <span className={`st ${p.estado === 'live' ? 'live' : 'arch'}`}>
-            {p.estado === 'live' ? 'En producción' : 'Archivado'}
-          </span>
-          <span className="yr">{p.anio}</span>
+          <span className={`st ${p.estado}`}>{estados[p.estado]}</span>
+          <span className="yr">{p.rol}</span>
         </div>
       </div>
       <div className="file-body">
@@ -294,9 +299,24 @@ export function FileCard({ p, onOpen }) {
             <span key={s}>{s}</span>
           ))}
         </div>
-        <span className="file-open">
-          Abrir expediente <i>↗</i>
-        </span>
+        {onOpen ? (
+          <span className="file-open">
+            Abrir expediente <i>↗</i>
+          </span>
+        ) : (
+          <span className="file-links">
+            {p.repo && (
+              <a href={p.repo} target="_blank" rel="noreferrer" className="file-open" data-cursor>
+                Código <i>↗</i>
+              </a>
+            )}
+            {p.demo && (
+              <a href={p.demo} target="_blank" rel="noreferrer" className="file-open" data-cursor>
+                En vivo <i>↗</i>
+              </a>
+            )}
+          </span>
+        )}
       </div>
     </article>
   )
@@ -312,7 +332,7 @@ export function Z05() {
           <h2 className="zt">
             Trabajo <em>archivado</em>
           </h2>
-          <p className="lede">Cuatro expedientes destacados. El archivo completo está una puerta más allá.</p>
+          <p className="lede">Cuatro expedientes destacados, con su estado real. El archivo completo, con mis proyectos de práctica, está una puerta más allá.</p>
         </Reveal>
 
         <div className="file-grid">
@@ -377,7 +397,7 @@ export function Z07() {
     const asunto = encodeURIComponent(`Contacto de ${f.get('nombre')}`)
     const cuerpo = encodeURIComponent(`${f.get('mensaje')}\n\n— ${f.get('nombre')} (${f.get('email')})`)
     window.location.href = `mailto:${contacto.email}?subject=${asunto}&body=${cuerpo}`
-    setNota('Abriendo tu cliente de correo. Si no ocurre nada, escríbeme directo al email de arriba.')
+    setNota('Se abrirá tu aplicación de correo con el mensaje listo. Si no ocurre nada, escríbeme directo al email de la izquierda.')
   }
 
   return (
@@ -390,7 +410,7 @@ export function Z07() {
               Solicitar <em>acceso</em>
             </h2>
             <p className="lede">
-              ¿Un proyecto, una idea o solo saludar? Escríbeme y respondo — normalmente el mismo día.
+              ¿Una vacante, un proyecto o una idea? Escríbeme; leo todos los mensajes.
             </p>
           </Reveal>
 
@@ -400,12 +420,6 @@ export function Z07() {
                 <span className="k">Email</span>
                 <a href={`mailto:${contacto.email}`} data-cursor>
                   {contacto.email}
-                </a>
-              </li>
-              <li>
-                <span className="k">Teléfono</span>
-                <a href={`tel:${contacto.telefono.replace(/[^+\d]/g, '')}`} data-cursor>
-                  {contacto.telefono}
                 </a>
               </li>
               <li>
@@ -452,7 +466,9 @@ export function Z07() {
         <span>
           © {new Date().getFullYear()} {identity.nombre} {identity.apellido}
         </span>
-        <span>Credencial de acceso · v1.0</span>
+        <a href="https://github.com/yairV1/portafolio_" target="_blank" rel="noreferrer" data-cursor>
+          Hecho con React + Three.js · ver código ↗
+        </a>
       </footer>
     </section>
   )

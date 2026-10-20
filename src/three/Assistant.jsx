@@ -68,7 +68,7 @@ class ModelErrorBoundary extends Component {
      - Idle bob: si no hay clip "Idle", se aplica una flotación sutil al grupo raíz.
    ============================================================================================ */
 
-const MODEL_URL = '/models/yair-ai.glb'
+const MODEL_URL = `${import.meta.env.BASE_URL}models/yair-ai.glb`
 const MODEL_SCALE = 1
 
 /* ---------- ¿existe ya el GLB? (HEAD request, sin lanzar 404 al visitante) ---------- */

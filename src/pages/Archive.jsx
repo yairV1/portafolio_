@@ -110,7 +110,7 @@ export default function Archive() {
               </button>
               <span className="zone-tag">
                 <i />
-                <b>{open.anio}</b> {open.categoria}
+                <b>{open.categoria}</b> {open.rol}
               </span>
               <h3>{open.nombre}</h3>
               <p className="lede">{open.resumen}</p>
@@ -131,9 +131,9 @@ export default function Archive() {
                   </ul>
                 </div>
                 <div>
-                  <h5>Aprendizajes</h5>
+                  <h5>Retos técnicos</h5>
                   <ul>
-                    {open.aprendizajes.map((a) => (
+                    {open.retos.map((a) => (
                       <li key={a}>{a}</li>
                     ))}
                   </ul>
@@ -141,12 +141,16 @@ export default function Archive() {
               </div>
 
               <div className="sheet-links">
-                <a className="btn btn-solid" href={open.demo} target="_blank" rel="noreferrer" data-cursor>
-                  Ver demo ↗
-                </a>
-                <a className="btn btn-ghost" href={open.repo} target="_blank" rel="noreferrer" data-cursor>
-                  Código en GitHub
-                </a>
+                {open.demo && (
+                  <a className="btn btn-solid" href={open.demo} target="_blank" rel="noreferrer" data-cursor>
+                    Ver en vivo ↗
+                  </a>
+                )}
+                {open.repo && (
+                  <a className="btn btn-ghost" href={open.repo} target="_blank" rel="noreferrer" data-cursor>
+                    Código en GitHub
+                  </a>
+                )}
               </div>
             </motion.div>
           </motion.div>
